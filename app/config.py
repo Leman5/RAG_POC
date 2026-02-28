@@ -17,8 +17,12 @@ class Settings(BaseSettings):
     # OpenAI Configuration
     openai_api_key: str
 
-    # Database Configuration
-    database_url: str
+    # ChromaDB Configuration
+    chroma_persist_dir: str = "./chroma_db"
+
+    # JSON Storage Paths
+    bm25_corpus_path: str = "./data/bm25_corpus.json"
+    parents_path: str = "./data/parents.json"
 
     # API Authentication
     api_keys: str  # Comma-separated list of valid API keys
@@ -27,6 +31,7 @@ class Settings(BaseSettings):
     embedding_model: str = "text-embedding-3-small"
     llm_model: str = "gpt-4o-mini"
     router_model: str = "gpt-3.5-turbo"
+    vision_model: str = "gpt-4o-mini"
 
     # Document Configuration
     documents_path: str = "./documents"
@@ -34,6 +39,16 @@ class Settings(BaseSettings):
     # RAG Configuration
     retrieval_top_k: int = 5
     similarity_threshold: float = 0.7
+
+    # Vision Configuration
+    vision_dpi: int = 150
+
+    # Chunking Configuration
+    chunk_size_recursive: int = 1000
+    chunk_overlap_recursive: int = 200
+    chunk_size_child: int = 400
+    chunk_overlap_child: int = 50
+    doc_level_max_chars: int = 2000
 
     @property
     def api_keys_list(self) -> list[str]:

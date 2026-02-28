@@ -4,17 +4,17 @@ import logging
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from langchain_chroma import Chroma
+from langchain_community.retrievers import BM25Retriever
+from langchain_openai import ChatOpenAI
 
 from app.config import Settings, get_settings
-from app.dependencies import get_llm, get_router_llm, get_vector_store
+from app.dependencies import get_bm25_retriever, get_llm, get_router_llm, get_vector_store
 from app.middleware.auth import verify_api_key
 from app.models.schemas import ChatRequest, ChatResponse, DocumentChunk
 from app.services.query_router import route_query
 from app.services.retriever import retrieve_documents
 from app.services.generator import generate_response
-
-from langchain_openai import ChatOpenAI
-from langchain_postgres import PGVector
 
 logger = logging.getLogger(__name__)
 
@@ -33,13 +33,14 @@ async def chat(
     settings: Annotated[Settings, Depends(get_settings)],
     llm: Annotated[ChatOpenAI, Depends(get_llm)],
     router_llm: Annotated[ChatOpenAI, Depends(get_router_llm)],
-    vector_store: Annotated[PGVector, Depends(get_vector_store)],
+    vector_store: Annotated[Chroma, Depends(get_vector_store)],
+    bm25_retriever: Annotated[BM25Retriever | None, Depends(get_bm25_retriever)],
 ) -> ChatResponse:
     """Process a chat query using the RAG system.
 
     The flow:
     1. Query router classifies if the query needs document retrieval
-    2. If needed, retrieve relevant document chunks from PGVector
+    2. If needed, retrieve relevant document chunks via hybrid search
     3. Generate response using LLM (with or without context)
     4. Return response with source information
 
@@ -49,7 +50,8 @@ async def chat(
         settings: Application settings
         llm: LLM for response generation
         router_llm: LLM for query routing
-        vector_store: PGVector store for retrieval
+        vector_store: ChromaDB store for retrieval
+        bm25_retriever: BM25 retriever for keyword search
 
     Returns:
         ChatResponse with answer, retrieval status, and sources
@@ -71,6 +73,8 @@ async def chat(
                 query=query,
                 vector_store=vector_store,
                 settings=settings,
+                bm25_retriever=bm25_retriever,
+                parents_path=settings.parents_path,
             )
             if sources:
                 context_chunks = sources
@@ -157,7 +161,8 @@ async def chat_rag(
     api_key: Annotated[str, Depends(verify_api_key)],
     settings: Annotated[Settings, Depends(get_settings)],
     llm: Annotated[ChatOpenAI, Depends(get_llm)],
-    vector_store: Annotated[PGVector, Depends(get_vector_store)],
+    vector_store: Annotated[Chroma, Depends(get_vector_store)],
+    bm25_retriever: Annotated[BM25Retriever | None, Depends(get_bm25_retriever)],
 ) -> ChatResponse:
     """Process a chat query with forced document retrieval.
 
@@ -168,7 +173,8 @@ async def chat_rag(
         api_key: Validated API key from middleware
         settings: Application settings
         llm: LLM for response generation
-        vector_store: PGVector store for retrieval
+        vector_store: ChromaDB store for retrieval
+        bm25_retriever: BM25 retriever for keyword search
 
     Returns:
         ChatResponse with answer and sources
@@ -182,6 +188,8 @@ async def chat_rag(
             query=query,
             vector_store=vector_store,
             settings=settings,
+            bm25_retriever=bm25_retriever,
+            parents_path=settings.parents_path,
         )
 
         context_chunks = sources if sources else None

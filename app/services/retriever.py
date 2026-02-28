@@ -1,56 +1,123 @@
-"""Vector similarity search service using PGVector."""
+"""Hybrid retrieval service using Dense (ChromaDB) + Sparse (BM25).
+
+Combines vector similarity search with BM25 keyword matching via
+EnsembleRetriever, with parent-child lookup for hierarchical chunks.
+"""
 
 import logging
 from typing import Optional
 
-from langchain_postgres import PGVector
+from langchain_chroma import Chroma
+from langchain_classic.retrievers import EnsembleRetriever
+from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
 
 from app.models.schemas import DocumentChunk
+from app.services.parent_store import get_parent
 from app.config import Settings
 
 logger = logging.getLogger(__name__)
 
 
+def build_ensemble_retriever(
+    vector_store: Chroma,
+    bm25_retriever: BM25Retriever | None,
+    k: int = 5,
+    bm25_weight: float = 0.4,
+    dense_weight: float = 0.6,
+) -> EnsembleRetriever | None:
+    """Build an EnsembleRetriever combining dense and sparse search.
+
+    If BM25 retriever is not available (no chunks ingested yet),
+    falls back to dense-only retrieval.
+
+    Args:
+        vector_store: ChromaDB store for dense retrieval.
+        bm25_retriever: BM25Retriever for keyword search (can be None).
+        k: Number of results per retriever.
+        bm25_weight: Weight for BM25 results in RRF.
+        dense_weight: Weight for dense results in RRF.
+
+    Returns:
+        EnsembleRetriever instance, or None if nothing is available.
+    """
+    dense_retriever = vector_store.as_retriever(
+        search_type="similarity",
+        search_kwargs={"k": k},
+    )
+
+    if bm25_retriever is None:
+        logger.warning("BM25 retriever not available, using dense-only retrieval")
+        return EnsembleRetriever(
+            retrievers=[dense_retriever],
+            weights=[1.0],
+        )
+
+    return EnsembleRetriever(
+        retrievers=[bm25_retriever, dense_retriever],
+        weights=[bm25_weight, dense_weight],
+    )
+
+
 async def retrieve_documents(
     query: str,
-    vector_store: PGVector,
+    vector_store: Chroma,
     settings: Settings,
+    bm25_retriever: BM25Retriever | None = None,
     top_k: Optional[int] = None,
     score_threshold: Optional[float] = None,
+    parents_path: Optional[str] = None,
 ) -> list[DocumentChunk]:
-    """Retrieve relevant document chunks based on query similarity.
+    """Retrieve relevant document chunks using hybrid search.
+
+    Uses EnsembleRetriever (BM25 + Dense) and resolves parent-child
+    relationships for hierarchical chunks.
 
     Args:
-        query: The user query to search for
-        vector_store: PGVector store instance
-        settings: Application settings
-        top_k: Number of results to return (defaults to settings.retrieval_top_k)
-        score_threshold: Minimum similarity score (defaults to settings.similarity_threshold)
+        query: The user query to search for.
+        vector_store: ChromaDB store instance.
+        settings: Application settings.
+        bm25_retriever: Optional BM25Retriever for keyword search.
+        top_k: Number of results to return.
+        score_threshold: Minimum similarity score (used for dense-only fallback).
+        parents_path: Path to parents JSON file for parent document lookups.
 
     Returns:
-        List of DocumentChunk objects with content and metadata
+        List of DocumentChunk objects with content and metadata.
     """
     k = top_k or settings.retrieval_top_k
-    threshold = score_threshold or settings.similarity_threshold
+    parent_file = parents_path or settings.parents_path
 
     try:
-        # Perform similarity search with scores
-        results_with_scores = await vector_store.asimilarity_search_with_relevance_scores(
-            query=query,
+        # Build ensemble retriever
+        ensemble = build_ensemble_retriever(
+            vector_store=vector_store,
+            bm25_retriever=bm25_retriever,
             k=k,
         )
 
-        # Filter by score threshold and convert to DocumentChunk
-        chunks = []
-        for doc, score in results_with_scores:
-            # Skip results below threshold
-            if score < threshold:
-                logger.debug(f"Skipping chunk with score {score:.3f} (below threshold {threshold})")
-                continue
+        if ensemble is None:
+            logger.warning("No retriever available")
+            return []
 
-            chunk = _document_to_chunk(doc, score)
-            chunks.append(chunk)
+        # Retrieve documents
+        results = ensemble.invoke(query)
+
+        # Resolve parent-child relationships
+        resolved_results = _resolve_parents(results, parent_file)
+
+        # Deduplicate (parents may be returned multiple times if
+        # multiple children from the same parent matched)
+        seen_contents: set[str] = set()
+        unique_results: list[Document] = []
+        for doc in resolved_results:
+            content_hash = hash(doc.page_content[:200])
+            if content_hash not in seen_contents:
+                seen_contents.add(content_hash)
+                unique_results.append(doc)
+
+        # Convert to DocumentChunk
+        chunks = [_document_to_chunk(doc) for doc in unique_results[:k]]
 
         logger.info(f"Retrieved {len(chunks)} relevant chunks for query")
         return chunks
@@ -60,71 +127,58 @@ async def retrieve_documents(
         return []
 
 
-def retrieve_documents_sync(
-    query: str,
-    vector_store: PGVector,
-    settings: Settings,
-    top_k: Optional[int] = None,
-    score_threshold: Optional[float] = None,
-) -> list[DocumentChunk]:
-    """Synchronous version of retrieve_documents.
+def _resolve_parents(
+    results: list[Document],
+    parents_path: str,
+) -> list[Document]:
+    """Replace child chunks with their parent documents for full context.
 
     Args:
-        query: The user query to search for
-        vector_store: PGVector store instance
-        settings: Application settings
-        top_k: Number of results to return (defaults to settings.retrieval_top_k)
-        score_threshold: Minimum similarity score (defaults to settings.similarity_threshold)
+        results: Raw retrieval results.
+        parents_path: Path to parents JSON file for lookups.
 
     Returns:
-        List of DocumentChunk objects with content and metadata
+        Results with children replaced by their parents.
     """
-    k = top_k or settings.retrieval_top_k
-    threshold = score_threshold or settings.similarity_threshold
+    resolved: list[Document] = []
 
-    try:
-        # Perform similarity search with scores
-        results_with_scores = vector_store.similarity_search_with_relevance_scores(
-            query=query,
-            k=k,
-        )
+    for doc in results:
+        metadata = doc.metadata or {}
+        parent_id = metadata.get("parent_id")
+        is_parent = metadata.get("is_parent", True)
 
-        # Filter by score threshold and convert to DocumentChunk
-        chunks = []
-        for doc, score in results_with_scores:
-            # Skip results below threshold
-            if score < threshold:
-                logger.debug(f"Skipping chunk with score {score:.3f} (below threshold {threshold})")
-                continue
+        # If this is a child chunk, fetch the parent
+        if parent_id and not is_parent:
+            parent = get_parent(parent_id, parents_path)
+            if parent:
+                resolved.append(parent)
+            else:
+                # Parent not found, use the child as-is
+                logger.warning(f"Parent {parent_id} not found, using child chunk")
+                resolved.append(doc)
+        else:
+            resolved.append(doc)
 
-            chunk = _document_to_chunk(doc, score)
-            chunks.append(chunk)
-
-        logger.info(f"Retrieved {len(chunks)} relevant chunks for query")
-        return chunks
-
-    except Exception as e:
-        logger.error(f"Error retrieving documents: {e}")
-        return []
+    return resolved
 
 
-def _document_to_chunk(doc: Document, score: float) -> DocumentChunk:
+def _document_to_chunk(doc: Document, score: float | None = None) -> DocumentChunk:
     """Convert a LangChain Document to a DocumentChunk.
 
     Args:
-        doc: LangChain Document object
-        score: Similarity score
+        doc: LangChain Document object.
+        score: Optional similarity score.
 
     Returns:
-        DocumentChunk with content and metadata
+        DocumentChunk with content and metadata.
     """
     metadata = doc.metadata or {}
 
-    # Extract source - could be stored in different metadata fields
-    source = metadata.get("source", metadata.get("file_path", "unknown"))
-
-    # Extract page number if available
+    source = metadata.get("source", metadata.get("source_filename", "unknown"))
     page = metadata.get("page", metadata.get("page_number"))
+    category = metadata.get("category")
+    chunk_strategy = metadata.get("chunk_strategy")
+
     if page is not None:
         try:
             page = int(page)
@@ -135,7 +189,9 @@ def _document_to_chunk(doc: Document, score: float) -> DocumentChunk:
         content=doc.page_content,
         source=str(source),
         page=page,
-        score=round(score, 4),
+        score=round(score, 4) if score is not None else None,
+        category=category,
+        chunk_strategy=chunk_strategy,
     )
 
 
@@ -143,10 +199,10 @@ def format_context_for_prompt(chunks: list[DocumentChunk]) -> str:
     """Format retrieved chunks into a context string for the LLM prompt.
 
     Args:
-        chunks: List of DocumentChunk objects
+        chunks: List of DocumentChunk objects.
 
     Returns:
-        Formatted context string
+        Formatted context string.
     """
     if not chunks:
         return ""
@@ -156,6 +212,8 @@ def format_context_for_prompt(chunks: list[DocumentChunk]) -> str:
         source_info = f"Source: {chunk.source}"
         if chunk.page is not None:
             source_info += f", Page {chunk.page}"
+        if chunk.category:
+            source_info += f" | Category: {chunk.category}"
 
         context_parts.append(
             f"[Document {i}]\n{source_info}\n---\n{chunk.content}"

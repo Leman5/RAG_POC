@@ -1,148 +1,183 @@
-# RAG POC - Retrieval-Augmented Generation API
+# RAG POC - Retrieval-Augmented Generation System
 
-A FastAPI-based RAG system using LangChain, OpenAI, and PGVector for intelligent document retrieval and response generation.
+A production-ready RAG system for Bottlecapps admin documentation, built with FastAPI, LangChain, ChromaDB, and hybrid retrieval (Dense + BM25).
 
 ## Architecture Overview
 
-```mermaid
-flowchart LR
-    Client([Client]) --> API[FastAPI]
-    API --> Router{Query Router}
-    Router -->|needs docs| VDB[(PGVector)]
-    Router -->|general query| LLM[OpenAI]
-    VDB --> LLM
-    LLM --> Client
 ```
-
-For detailed architecture diagrams, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
-
-## Features
-
-- **PDF Document Ingestion**: Load and process PDF documents with semantic chunking
-- **Vector Storage**: Store document embeddings in PostgreSQL with pgvector
-- **Intelligent Query Routing**: LLM-based classification to determine if retrieval is needed
-- **RAG API**: FastAPI endpoints for querying the knowledge base
-- **API Key Authentication**: Simple and secure API key authentication
+PDF Documents (52 files)
+    │
+    ├── pdfplumber (text + tables extraction)
+    ├── pypdfium2 (page rendering)
+    └── GPT-4o-mini Vision (screenshot descriptions)
+            │
+            ▼
+    Text Cleaner (noise removal + merge)
+            │
+            ▼
+    Tiered Chunking Classifier
+    ├── Document-Level  (< 2K chars → 1 chunk)
+    ├── Recursive Split  (2K-5K chars → overlapping chunks)
+    └── Parent-Child     (5K+ chars / Q&A → hierarchical)
+            │
+            ▼
+    ┌─────────────────────────────────┐
+    │ File-based Storage              │
+    │  ├── ChromaDB (dense embeddings)│
+    │  ├── bm25_corpus.json (BM25)    │
+    │  └── parents.json (parent docs) │
+    └─────────────────────────────────┘
+            │
+            ▼
+    Hybrid Retrieval (EnsembleRetriever)
+    ├── BM25 Keyword Search  (weight: 0.4)
+    └── Dense Vector Search  (weight: 0.6)
+            │
+    Parent-Child Resolution
+            │
+            ▼
+    GPT-4o-mini (Response Generation)
+```
 
 ## Prerequisites
 
 - Python 3.11+
-- PostgreSQL with pgvector extension
 - OpenAI API key
 
-## Installation
+No Docker required! All storage is file-based (ChromaDB + JSON files).
 
-1. Clone the repository and navigate to the project directory
+## Quick Start
 
-2. Create a virtual environment:
+### 1. Configure Environment
+
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+cp .env.example .env
+# Edit .env with your actual values:
+#   - OPENAI_API_KEY (required)
+#   - API_KEYS (at least one key for API authentication)
 ```
 
-3. Install dependencies:
+### 2. Install Dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Set up environment variables:
-```bash
-cp .env.example .env
-# Edit .env with your configuration
-```
-
-## Database Setup
-
-1. Create a PostgreSQL database:
-```sql
-CREATE DATABASE rag_db;
-```
-
-2. Enable the pgvector extension:
-```sql
-\c rag_db
-CREATE EXTENSION IF NOT EXISTS vector;
-```
-
-## Document Ingestion
-
-Place your PDF documents in the `documents/` folder, then run:
+### 3. Ingest Documents
 
 ```bash
-python scripts/ingest_documents.py
+# Full ingestion with vision descriptions
+python scripts/extract_and_ingest.py --clear
+
+# Skip vision (faster, for testing)
+python scripts/extract_and_ingest.py --clear --skip-vision
+
+# Dry run (process but don't store)
+python scripts/extract_and_ingest.py --dry-run
 ```
 
-## Running the API
-
-Start the development server:
+### 4. Start the API
 
 ```bash
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-The API will be available at `http://localhost:8000`
+API documentation available at: http://localhost:8000/docs
 
 ## API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/` | GET | API information |
-| `/health` | GET | Health check |
-| `/api/v1/chat` | POST | Main RAG query endpoint |
-| `/docs` | GET | OpenAPI documentation |
+| Method | Endpoint          | Description                                 |
+|--------|-------------------|---------------------------------------------|
+| POST   | `/api/v1/chat`     | Smart RAG (auto-routes query)               |
+| POST   | `/api/v1/chat/rag` | Force retrieval for every query             |
+| POST   | `/api/v1/chat/direct` | Direct LLM (no retrieval)                |
+| GET    | `/health`          | Health check with DB status                 |
 
-## Usage Example
+### Example Request
 
 ```bash
-curl -X POST "http://localhost:8000/api/v1/chat" \
+curl -X POST http://localhost:8000/api/v1/chat \
   -H "Content-Type: application/json" \
   -H "X-API-Key: your-api-key" \
-  -d '{"query": "What is mentioned in the documents about X?"}'
+  -d '{"query": "How do I set up app banners?"}'
 ```
+
+## Environment Variables
+
+| Variable                  | Default                  | Description                          |
+|---------------------------|--------------------------|--------------------------------------|
+| `OPENAI_API_KEY`          | (required)               | OpenAI API key                       |
+| `CHROMA_PERSIST_DIR`      | `./chroma_db`            | ChromaDB persistence directory       |
+| `BM25_CORPUS_PATH`        | `./data/bm25_corpus.json`| BM25 corpus JSON file path           |
+| `PARENTS_PATH`            | `./data/parents.json`    | Parent documents JSON file path      |
+| `API_KEYS`                | (required)               | Comma-separated API keys             |
+| `EMBEDDING_MODEL`         | `text-embedding-3-small` | OpenAI embedding model               |
+| `LLM_MODEL`              | `gpt-4o-mini`            | LLM for response generation          |
+| `ROUTER_MODEL`            | `gpt-3.5-turbo`          | LLM for query routing                |
+| `VISION_MODEL`            | `gpt-4o-mini`            | Vision LLM for screenshots           |
+| `VISION_DPI`              | `150`                    | DPI for PDF page rendering           |
+| `CHUNK_SIZE_RECURSIVE`    | `1000`                   | Chunk size for recursive splitting   |
+| `CHUNK_OVERLAP_RECURSIVE` | `200`                    | Overlap for recursive splitting      |
+| `CHUNK_SIZE_CHILD`        | `400`                    | Child chunk size (parent-child)      |
+| `CHUNK_OVERLAP_CHILD`     | `50`                     | Child overlap (parent-child)         |
+| `DOC_LEVEL_MAX_CHARS`     | `2000`                   | Max chars for document-level tier    |
+| `RETRIEVAL_TOP_K`         | `5`                      | Number of chunks to retrieve         |
+| `SIMILARITY_THRESHOLD`    | `0.7`                    | Minimum similarity score             |
 
 ## Project Structure
 
 ```
 RAG_POC/
 ├── app/
-│   ├── main.py              # FastAPI app entry point
-│   ├── config.py            # Configuration settings
-│   ├── dependencies.py      # Dependency injection
-│   ├── routers/
-│   │   └── chat.py          # Chat endpoint router
-│   ├── services/
-│   │   ├── query_router.py  # Query intent classification
-│   │   ├── retriever.py     # Vector similarity search
-│   │   └── generator.py     # Response generation
+│   ├── config.py              # Settings from env vars
+│   ├── dependencies.py        # FastAPI dependency injection
+│   ├── main.py                # FastAPI app + lifespan
+│   ├── middleware/
+│   │   └── auth.py            # API key authentication
 │   ├── models/
-│   │   └── schemas.py       # Pydantic models
-│   └── middleware/
-│       └── auth.py          # API key authentication
+│   │   ├── __init__.py
+│   │   └── schemas.py         # Pydantic request/response models
+│   ├── routers/
+│   │   ├── __init__.py
+│   │   └── chat.py            # Chat endpoints
+│   └── services/
+│       ├── bm25_service.py    # JSON-backed BM25 index
+│       ├── chunking.py        # Tiered chunking (doc-level/recursive/parent-child)
+│       ├── generator.py       # LLM response generation
+│       ├── json_store.py      # JSON persistence for BM25 + parents
+│       ├── parent_store.py    # JSON-backed parent document store
+│       ├── pdf_extractor.py   # pdfplumber text + pypdfium2 rendering
+│       ├── query_router.py    # Query routing logic
+│       ├── retriever.py       # Hybrid retrieval (BM25 + Dense)
+│       ├── text_cleaner.py    # Noise removal + text merging
+│       └── vision_describer.py # GPT-4o-mini vision descriptions
 ├── scripts/
-│   ├── ingest_documents.py  # Document ingestion script
-│   ├── setup_database.py    # Database setup script
-│   └── test_api.py          # API testing script
-├── docs/
-│   └── ARCHITECTURE.md      # Architecture diagrams
-├── documents/               # PDF source folder
+│   └── extract_and_ingest.py  # Main ingestion pipeline
+├── chroma_db/                 # ChromaDB persistence (created on ingestion)
+├── data/                      # JSON storage (created on ingestion)
+│   ├── bm25_corpus.json       # BM25 keyword index
+│   └── parents.json           # Parent documents
+├── documents/                 # PDF files (ONBOARDING/, SETUP/)
 ├── requirements.txt
-└── .env.example
+├── .env.example
+└── README.md
 ```
 
-## Configuration
+## Chunking Strategy Details
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `OPENAI_API_KEY` | OpenAI API key | Required |
-| `DATABASE_URL` | PostgreSQL connection string | Required |
-| `API_KEYS` | Comma-separated API keys | Required |
-| `EMBEDDING_MODEL` | OpenAI embedding model | text-embedding-3-small |
-| `LLM_MODEL` | OpenAI LLM model | gpt-4o-mini |
-| `ROUTER_MODEL` | Model for query routing | gpt-3.5-turbo |
-| `DOCUMENTS_PATH` | Path to PDF documents | ./documents |
-| `RETRIEVAL_TOP_K` | Number of chunks to retrieve | 5 |
-| `SIMILARITY_THRESHOLD` | Minimum similarity score | 0.7 |
+The system classifies each document and applies the optimal chunking strategy:
 
-## License
+| Tier            | Trigger                          | Behavior                                |
+|-----------------|----------------------------------|-----------------------------------------|
+| Document-Level  | < 2,000 chars                    | Entire doc = 1 chunk                    |
+| Recursive       | 2,000 - 5,000 chars              | Split with 1,000 char chunks, 200 overlap |
+| Parent-Child    | > 5,000 chars OR 3+ Q&A markers | Parents (2K) stored separately; children (400) embedded |
 
-MIT
+## Retrieval Details
+
+The hybrid retrieval system uses **Reciprocal Rank Fusion** to combine:
+
+- **BM25** (weight 0.4): Keyword matching for exact terms, error codes, product names
+- **Dense vectors** (weight 0.6): Semantic similarity for conceptual queries
+
+For parent-child chunks, matched child chunks are swapped with their parent's full content before being passed to the LLM, ensuring complete context.

@@ -1,11 +1,12 @@
-"""Dependency injection for database and LLM clients."""
+"""Dependency injection for vector store and LLM clients."""
 
 from functools import lru_cache
 from typing import Annotated
 
-from fastapi import Depends
+from fastapi import Depends, Request
+from langchain_chroma import Chroma
+from langchain_community.retrievers import BM25Retriever
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain_postgres import PGVector
 
 from app.config import Settings, get_settings
 
@@ -46,17 +47,24 @@ def get_router_llm(settings: Settings | None = None) -> ChatOpenAI:
 
 
 @lru_cache
-def get_vector_store(settings: Settings | None = None) -> PGVector:
-    """Get cached PGVector store instance."""
+def get_vector_store(settings: Settings | None = None) -> Chroma:
+    """Get cached ChromaDB vector store instance."""
     if settings is None:
         settings = get_settings()
     embeddings = get_embeddings(settings)
-    return PGVector(
-        embeddings=embeddings,
+    return Chroma(
         collection_name="documents",
-        connection=settings.database_url,
-        use_jsonb=True,
+        embedding_function=embeddings,
+        persist_directory=settings.chroma_persist_dir,
     )
+
+
+def get_bm25_retriever(request: Request) -> BM25Retriever | None:
+    """Get the BM25 retriever from app state (loaded on startup).
+
+    Returns None if no chunks have been ingested yet.
+    """
+    return getattr(request.app.state, "bm25_retriever", None)
 
 
 # FastAPI dependency types
@@ -64,4 +72,5 @@ SettingsDep = Annotated[Settings, Depends(get_settings)]
 EmbeddingsDep = Annotated[OpenAIEmbeddings, Depends(get_embeddings)]
 LLMDep = Annotated[ChatOpenAI, Depends(get_llm)]
 RouterLLMDep = Annotated[ChatOpenAI, Depends(get_router_llm)]
-VectorStoreDep = Annotated[PGVector, Depends(get_vector_store)]
+VectorStoreDep = Annotated[Chroma, Depends(get_vector_store)]
+BM25RetrieverDep = Annotated[BM25Retriever | None, Depends(get_bm25_retriever)]

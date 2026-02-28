@@ -16,6 +16,8 @@ class DocumentChunk(BaseModel):
     source: str = Field(..., description="Source file path")
     page: int | None = Field(None, description="Page number if available")
     score: float | None = Field(None, description="Similarity score")
+    category: str | None = Field(None, description="Document category from folder structure")
+    chunk_strategy: str | None = Field(None, description="Chunking strategy used (document_level, recursive, parent_child)")
 
 
 class RouteDecision(BaseModel):

@@ -1,0 +1,912 @@
+{
+  "725c6e6f-47e4-41d7-9017-9c1c399596d3": {
+    "content": "Document: Shipday Tutorial | Category: ONBOARDING > 3RD PARTY DELIVERY SETUP\n\nBOTTLECAPPS\nShipday Tutorial\nShipday is a delivery management software platform designed to help small businesses (like\nalcohol retailers) manage their local delivery operations efficiently. It provides tools to streamline\nthe process of receiving, dispatching, and tracking delivery orders, whether using a business’s\nown drivers or third-party delivery services.\nIn this guide, we will demonstrate how it works with your Bottlecapps app and/or website.\nNote: You likely already have a Shipday account, but if not, you will need to create one before\ngetting started.\nFirst, login (Login Screen):\nAfter logging in, click “Integrations” in the upper right corner:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "725c6e6f-47e4-41d7-9017-9c1c399596d3",
+      "parent_index": 0,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "e9239fa8-0046-448b-b133-40a082ced133": {
+    "content": "[Screenshot Description]: 1) The admin screen displayed is the Shipday login screen.\n\n2) The visible elements include fields for entering an email address and password, a \"Forgot Password?\" link, and a \"Sign In\" button. There is also a \"New to Shipday? Sign Up\" option.\n\n3) The elements highlighted or pointed to include the email address and password fields, the \"Sign In\" button, and the \"Integrations\" link in the upper right corner (mentioned later in the tutorial).\n\n4) The user is being instructed to log in to their Shipday account by entering their email and password and then clicking the \"Sign In\" button. After logging in, they are advised to click \"Integrations\" in the upper right corner.\n\nFrom this page, click “API Credentials” on the left and then click “Show API Key” as shown\nbelow. Then COPY that key and email it to help@bottlecapps.com and provide your exact store\nname:\nOn that same page, scroll down and you will see “Webhook Setup.” Click “Add API Link” and\ninput the following link here:\nWebhook; https://liquorapps.com/Bcapi/api/BCGateway/ShipDayOrderUpdate\nAPI Key: qwertyuio:poiuytrewq\nOnce setup, here’s how Shipday will work. When a DELIVERY order comes in, open the order\nin your Webconsole (in the orders tab) by clicking the blue Order Number:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "e9239fa8-0046-448b-b133-40a082ced133",
+      "parent_index": 1,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "e66d83f0-24d0-4568-8207-d611b4d59f30": {
+    "content": "[Screenshot Description]: The screenshot displays the following information:\n\n1. **Admin Screen/Section**: It is the \"Integrations\" section of the Bottlecapps admin interface, specifically focusing on API Credentials and Webhook Setup.\n\n2. **Visible Elements**:\n   - Buttons: \"Show API Key\" and \"Add API Link.\"\n   - Fields: API Key input area, Webhook URL input area.\n   - Menus: The left navigation menu listing options like \"Dispatch,\" \"Orders,\" \"Drivers,\" \"Map,\" \"Reviews,\" \"Reports,\" and \"Integrations.\"\n\n3. **Highlighted Elements**:\n   - The \"API Credentials\" option is circled in green.\n   - The \"Show API Key\" button is pointed to with an arrow.\n   - The Webhook URL link and the input with the example API Key are highlighted.\n\n4. **User Action Instructions**: The user is instructed to click on \"API Credentials,\" then \"Show API Key,\" copy the key, and email it to help@bottleapps.com. Additionally, the user is guided to scroll down to the Webhook Setup section, click \"Add API Link,\" and input the provided webhook URL and API Key.\n\nThen, scroll down and lick “Update Status to Scheduled for Delivery.” This will send the order\nover to Shipday:\nNext, open your Shipday Dashboard and click Dispatch. Find the order you just scheduled for\ndelivery and you can then assign the driver:\nNOTE: Before assigning drivers, drivers must be added. To do this, click the phone icon in the\nupper right:\nDrivers can scan the QR code or you can send them the link:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "e66d83f0-24d0-4568-8207-d611b4d59f30",
+      "parent_index": 2,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "200eff96-8cb4-4716-bade-c3f9372f0009": {
+    "content": "[Screenshot Description]: The screenshot displays the following information:\n\n1) **Admin Screen/Section**: The screen shows the \"Shipday Dashboard\" which is part of the Bottlecapps admin interface for managing deliveries.\n\n2) **Buttons, Fields, Menus, or Settings**: \n   - A prominent button labeled **“Update Status to Scheduled for Delivery”**.\n   - Other buttons include **“Cancel Order”** and **“Print Order”**.\n   - The **Dispatch** section is visible along with a listing of **New Orders**.\n   - There is also an **Assign** button associated with individual orders alongside driver details.\n\n3) **Highlighted Elements**: \n   - An arrow points to the **“Update Status to Scheduled for Delivery”** button.\n   - An arrow also points to the **“Dispatch”** option.\n   - An additional arrow indicates the **“Assign”** button near a specific order.\n\n4) **User Action Instructed**: The user is instructed to scroll down and click the **“Update Status to Scheduled for Delivery”** button to send the order to Shipday, followed by opening the Shipday Dashboard, clicking on **Dispatch**, and finding the scheduled order to assign a driver. Additionally, there’s a note about adding drivers through the phone icon before assigning them.\n\nThen, select the driver:\nFrom the Driver App, drivers can then accept or decline the delivery:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "200eff96-8cb4-4716-bade-c3f9372f0009",
+      "parent_index": 3,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "e2b95554-0f0c-4137-9c7e-f650a8f30f94": {
+    "content": "[Screenshot Description]: 1) The admin screen displayed is the \"Shipday Tutorial\" section focused on dispatching orders.\n\n2) Visible elements include a pop-up window to download the Dispatch App with a QR code, options to \"Copy link\" and \"Print QR code,\" and the section where drivers are listed with their status and assigned orders.\n\n3) The QR code is prominently highlighted, and the driver \"Anirudh R.\" is marked as \"Online.\" The number of assigned orders is indicated as \"3.\"\n\n4) The user is being instructed to download the Dispatch App using the provided QR code and then select a driver from the list to assign an order.\n\nThe delivery driver will then be able to update the status of the order(s):\n\n[Screenshot Description]: 1) The admin screen displayed is the \"Waiting\" section of the Shipday app.\n\n2) The visible buttons include \"Reject\" (red) and \"Accept\" (green). The screen also shows information about the distance (3.05 mi), order number (W446196), recipient name (Abhishek odela), scheduled time (09:00 AM), and delivery address.\n\n3) There are no specific highlighted elements, circles, or arrows in the screenshot.\n\n4) The user is being instructed to accept or reject the order by clicking the respective buttons.\n\nOnce delivered, the delivery driver will get then be prompted to get proof of delivery via a photo\nof the delivered item(s) and a signature:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "e2b95554-0f0c-4137-9c7e-f650a8f30f94",
+      "parent_index": 4,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "5e73630d-9e7c-4c07-94b8-52adafd40f1c": {
+    "content": "[Screenshot Description]: The screenshot displays the \"Orders\" section of the Shipday admin interface.\n\n1) **Admin Screen/Section**: The \"Orders\" screen is presented, showing a list of current delivery orders.\n\n2) **Visible Elements**: \n   - There are several entries with order statuses such as \"On the way,\" \"Picked up,\" and \"Started.\"\n   - Each entry includes order numbers (e.g., #W446184), customer names, addresses, delivery times, and buttons labeled \"Call,\" \"Navigate,\" \"Mark as Complete,\" and \"Mark as On the way.\"\n\n3) **Highlighted Elements**: \n   - The statuses (\"On the way,\" \"Picked up,\" \"Started\") appear to be highlighted for easy identification. \n   - Buttons like \"Mark as Complete\" and \"Mark as On the way\" are prominent.\n\n4) **User Action Instruction**: Users are instructed to update the status of the deliveries by using the \"Mark as Complete\" or \"Mark as On the way\" buttons depending on the current status of the order. \n\nOverall, the screenshot guides users on how to manage and update order statuses within the Shipday application.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "5e73630d-9e7c-4c07-94b8-52adafd40f1c",
+      "parent_index": 5,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "c5ff0683-44a0-4e72-b47e-9bdf466d8705": {
+    "content": "[Screenshot Description]: This screenshot displays the \"Orders\" section of the Shipday admin interface. \n\n1. **Admin Screen/Section Displayed**: The Orders screen where active delivery orders are listed.\n   \n2. **Visible Buttons, Fields, Menus, or Settings**: \n   - \"Mark as Complete\" button for completing an order.\n   - \"Mark as On the way\" button.\n   - Menu icon.\n   - Additional sections labeled \"Map,\" \"Waiting,\" \"Messages,\" and \"Performance.\"\n\n3. **Highlighted Elements**: A pop-up dialog box is highlighted, featuring:\n   - \"Proof of Delivery (POD)\" title.\n   - \"Take Proof of Delivery (POD)\" button.\n   - \"Failed Delivery\" button.\n   - \"Close\" button.\n\n4. **User Action Instruction**: The user is instructed to either take proof of delivery or mark the delivery as failed by selecting the corresponding button in the pop-up dialog.\n\nNOTE: to enable Proof of Delivery as a requirement for your drivers (as well as other settings),\nclick settings, then Driver Settings:\n\n[Screenshot Description]: The screenshot displays the \"Proof of Delivery (POD)\" admin section of the Shipday application.\n\n1. **Admin Screen Section**: The section is labeled \"Proof of Delivery (POD)\".\n  \n2. **Visible Elements**:\n   - Fields for inputting the name of the person who signed (labeled \"Name of the person signed (Required)\").\n   - An area for entering additional notes (labeled \"Enter Your Note\").\n   - Buttons for adding an image (\"Add Image\") and adding a signature (\"Add Signature\").\n   - A \"Complete the Order\" button at the bottom.\n\n3. **Highlighted Elements**: No specific elements are highlighted, circled, or pointed to with arrows in the screenshot.\n\n4. **User Instruction**: The user is instructed to enable \"Proof of Delivery\" as a requirement for drivers by clicking settings, then selecting \"Driver Settings\".\n\nMeanwhile, all orders can be tracked from the Shipday Dashboard. It will show, for example,\nwhen a delivery has started, been picked up, is on the way, or completed:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "c5ff0683-44a0-4e72-b47e-9bdf466d8705",
+      "parent_index": 6,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "740f398a-fa5c-42d0-a31a-c2c1eec75197": {
+    "content": "[Screenshot Description]: The screenshot displays the \"Driver Settings\" section of the Bottlecapps admin interface.\n\n1) **Admin Screen or Section**: Driver settings within the Bottlecapps admin dashboard.\n\n2) **Visible Buttons, Fields, Menus, or Settings**: \n   - Toggle settings for:\n     - Show driver phone number to customers\n     - Show sensitive customer details\n     - Item check on pick-up\n     - Require proof of delivery\n     - Requires ID scanning\n     - Option for drivers to re-optimize routes\n   - A list of orders with statuses including \"Picked Up\" and \"Started.\"\n   - A \"Reassign\" button next to each order.\n\n3) **Highlighted or Pointed Elements**: \n   - \"Picked Up\" status is highlighted in green.\n   - \"Started\" status is also highlighted in green.\n\n4) **User Instruction**: The user is being instructed to track orders from the Shipday Dashboard, with a focus on the statuses of deliveries, such as when they have started or been picked up.\n\nOnce an order has been delivered, you will see that the order has been updated to DELIVERED\nin your Webconsole:\nINTERNAL USE ONLY:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "740f398a-fa5c-42d0-a31a-c2c1eec75197",
+      "parent_index": 7,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "afd6205a-9c00-4c59-9949-39701528139d": {
+    "content": "[Screenshot Description]: The screenshot from the 'Shipday Tutorial' depicts the following:\n\n1) **Admin Screen/Section**: The admin screen displayed is the \"Dispatch\" section for managing orders.\n\n2) **Visible Buttons, Fields, Menus, or Settings**: There are order rows showing details such as order status (\"On the Way\"), order IDs (e.g., W446184), amounts ($71.02), and a \"Reassign\" button for each order. There are also navigation tabs for \"Dispatch,\" \"Orders,\" and \"Drivers.\"\n\n3) **Highlighted Elements**: The order status \"On the Way\" is highlighted in a green circle, and the status \"Delivered\" is highlighted in a subsequent section of the tutorial, pointing out the update in the Webconsole.\n\n4) **User Action Instruction**: The user is instructed to recognize that once an order has been delivered, it will be marked as \"DELIVERED\" in the Webconsole.\n\nOur team will select Shipday as your Delivery Provider and input the API Key you sent to\nhelp@bottlecapps.com into the backend for your store:\n\n[Screenshot Description]: The screenshot from the 'Shipday Tutorial' admin section displays the following:\n\n1. **Admin Screen/Section**: The section shown is the \"Delivery Providers\" setup within the backend of the BottleCapps admin interface.\n\n2. **Buttons, Fields, Menus, or Settings**: \n   - Radio buttons for selecting a delivery provider: options include \"Own Delivery,\" \"Delivery Solution,\" \"DoorDash,\" \"Ziffy,\" \"FedEx,\" \"DoorDash/FedEx,\" \"Instacart,\" \"Uber,\" and \"Shipday.\"\n   - A text input field labeled \"API Key.\"\n\n3. **Highlighted Elements**: The API Key input field is visibly emphasized, with the input obscured for privacy.\n\n4. **Action Instruction**: The user is instructed to select \"Shipday\" as their Delivery Provider and input the API Key they sent to help@bottlecapps.com into the backend of their store.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\3RD PARTY DELIVERY SETUP\\Shipday Tutorial.pdf",
+      "source_filename": "Shipday Tutorial.pdf",
+      "document_title": "Shipday Tutorial",
+      "category": "ONBOARDING > 3RD PARTY DELIVERY SETUP",
+      "chunk_strategy": "parent_child",
+      "parent_id": "afd6205a-9c00-4c59-9949-39701528139d",
+      "parent_index": 8,
+      "total_parents": 9,
+      "is_parent": true
+    }
+  },
+  "9c1aefa3-8a66-4dbc-b1ac-e030e2a17b0a": {
+    "content": "Document: Google Merchant Center   Steps By Step Instructions | Category: ONBOARDING > GOOGLE MERCHANT CENTER\n\nBOTTLECAPPS\nGoogle Merchant Center - Steps-by-Step\nInstructions\nStep 1: Head to the home page of ‘ Google Merchant Center\n‘ https://www.google.com/retail/solutions/merchant-center/\nStep 2: Click on the button ‘ Sign in ‘ and select ‘ Sign in to Merchant Center ‘ ( see below\nscreenshot for help )\nStep 3: Login to the Gmail or Google Account through which you would want to create the Google\nMerchant Account.\n\nStep 4: Once you are signed in, you will be taken to this page below. Scroll down this page for the next\nsteps.\nStep 5: After scroll, you get to see these fields.\n\nBusiness Name: Enter the Business Name of the Store\nBusiness Country: Select the country of the store, it is located ( mostly, it’ll be United States in our\ncase)\nTime Zone: Select the Time Zone of the Store\nStep 6: Scroll further down the page to see these details. ( see below screenshot )\nTick the box that says ‘ On my website ‘\nStep 7: Scroll further down the page to see the options. Skip this selection!\n\nStep 8: Scroll further down the page. Tick this box. ( see below screenshot )\nStep 9: After filling all the required fields on the Page, you will be shown this option. Click on\n‘ Create Account. ‘\n\nStep 10: Hit ‘ Continue ‘.\nStep 11: You’ll now see this page ( see the screenshot ). Click on the ‘ Provide your website URL ‘\noption.\n\nStep 12: Enter the Store URL in this field ( see below screenshot ).\nYour website address: Enter the URL of the Store\nStep 13: Once the URL of the store is entered, you will be taken to this below screen, upon a scroll.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\GOOGLE MERCHANT CENTER\\Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "source_filename": "Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "document_title": "Google Merchant Center   Steps By Step Instructions",
+      "category": "ONBOARDING > GOOGLE MERCHANT CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "9c1aefa3-8a66-4dbc-b1ac-e030e2a17b0a",
+      "parent_index": 0,
+      "total_parents": 7,
+      "is_parent": true
+    }
+  },
+  "16ab7d86-ecf0-4455-9331-cc140add228b": {
+    "content": "[Screenshot Description]: The screenshot displays an admin screen from the Google Merchant Center, specifically the \"Business information\" section.\n\n1. **Admin Screen or Section**: Google Merchant Center - Business information.\n   \n2. **Visible Elements**: \n   - Buttons: \"Set up tax,\" \"Set up shipping,\" \"Provide your website URL,\" \"Add product data.\"\n   - Fields: A text box labeled “Your website address” where users can enter their website URL.\n   - Menu: A navigation bar at the top with options like \"Product and business information\" and \"Free listings setup.\"\n\n3. **Highlighted Elements**: The button \"Provide your website URL\" is highlighted in red.\n\n4. **User Action Instruction**: The user is instructed to enter the URL of their store in the specified field. After inputting the URL, they will be directed to another screen.\n\nClick on the first of the boxes as hinted in the above screenshot.\nStep 14: Now, you will be taken to the verification code page. ( see sample screenshot below )\nCopy the code that’s displayed on the screen and create a ticket for verification.\nThe text you need to copy and paste, while creating the ticket should be only this portion highlighted.\nAt a later point, once the code is added to the website, you can come back to this page to verify the\nownership.\nIn the same ticket request the team to provide the Product Shopping Feed URL. You will need\nthis before you can proceed further.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\GOOGLE MERCHANT CENTER\\Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "source_filename": "Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "document_title": "Google Merchant Center   Steps By Step Instructions",
+      "category": "ONBOARDING > GOOGLE MERCHANT CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "16ab7d86-ecf0-4455-9331-cc140add228b",
+      "parent_index": 1,
+      "total_parents": 7,
+      "is_parent": true
+    }
+  },
+  "6312d71c-f02d-4114-ba7d-f5270fcb838b": {
+    "content": "[Screenshot Description]: The screenshot displays the **Google Merchant Center** admin screen, specifically within the **Business Information** section. \n\n1. **Admin Screen/Section Displayed**: Google Merchant Center - Business Information.\n   \n2. **Visible Elements**: \n   - Options to \"Add an HTML tag or upload an HTML file\" for website verification.\n   - Buttons or options to \"Verify with Google Tag Manager\" and \"Verify with Google Analytics.\"\n   - A \"Verify website\" button is also present.\n\n3. **Highlighted Elements**: \n   - The option \"Add an HTML tag or upload an HTML file\" is circled with a red marker, indicating that this is the preferred method for most merchants.\n\n4. **User Action Instruction**: Users are instructed to click on the first box, copy the HTML verification code displayed on the screen, and create a ticket for verification, including specific instructions on where to place the code on their website. Additionally, users are advised to request the Product Shopping Feed URL in the same ticket.\n\nStep 15: Now go back to previous page using this option ( see screenshot )\nHit ‘ Back to Free Listings ‘\nStep 16: Click on ‘ Add Product Data ‘\nStep 17: Click on ‘ See all methods ‘ (see screenshot below )",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\GOOGLE MERCHANT CENTER\\Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "source_filename": "Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "document_title": "Google Merchant Center   Steps By Step Instructions",
+      "category": "ONBOARDING > GOOGLE MERCHANT CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "6312d71c-f02d-4114-ba7d-f5270fcb838b",
+      "parent_index": 2,
+      "total_parents": 7,
+      "is_parent": true
+    }
+  },
+  "591c432d-8abd-4346-abeb-e625ca587f9b": {
+    "content": "[Screenshot Description]: The screenshot displays instructions for the Google Merchant Center admin.\n\n1. **Admin Screen/Section**: The \"Free Listings\" setup section of the Google Merchant Center.\n   \n2. **Visible Elements**: \n   - A button labeled \"Add an HTML tag\".\n   - A field with an HTML tag for site verification.\n   - Options for providing website information, including \"Tag Manager on your website\" and \"Analytics on your website\".\n   - A button labeled \"Back to Free Listings\".\n\n3. **Highlighted Elements**: \n   - The \"Back to Free Listings\" button is circled.\n   - The \"Add product data\" option is circled in a subsequent step.\n   - The \"See all methods\" link is indicated for further instructions.\n\n4. **User Action Instruction**: The user is instructed to navigate back to the previous page by clicking \"Back to Free Listings\", and then to click on \"Add Product Data\" followed by \"See all methods\" to continue the setup process.\n\nStep 18: Choose the language ‘ English ‘ from the drop down.\nStep 19: Tick the ‘ Free Listings ‘ and click on ‘ Continue ‘.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\GOOGLE MERCHANT CENTER\\Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "source_filename": "Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "document_title": "Google Merchant Center   Steps By Step Instructions",
+      "category": "ONBOARDING > GOOGLE MERCHANT CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "591c432d-8abd-4346-abeb-e625ca587f9b",
+      "parent_index": 3,
+      "total_parents": 7,
+      "is_parent": true
+    }
+  },
+  "57ec4263-631c-4521-811a-c1c0000061d1": {
+    "content": "[Screenshot Description]: The screenshot on page 9 of the Bottlecapps admin tutorial for 'Google Merchant Center - Steps By Step Instructions' displays the following:\n\n1) **Admin Screen/Section**: The screenshot shows the \"Products\" section of Google Merchant Center, specifically related to adding products.\n\n2) **Visible Buttons/Fields/Menus/Settings**: \n   - Two options for adding products: \"Add a single product\" and \"Upload multiple products.\"\n   - Buttons labeled \"Add product\" and \"Continue.\"\n   - A dropdown menu to select the \"Country of sale\" (e.g., \"United States\").\n   - A dropdown for selecting \"Language.\"\n   - A checkbox for \"Free Listings.\"\n\n3) **Highlighted/Circled/Pointed Elements**: \n   - The text indicating \"Upload multiple products\" is circled.\n   - Step instructions are numbered (Step 18 and Step 19), guiding the user on what to select and tick.\n\n4) **User Action Instructions**: The user is instructed to:\n   - Choose the language 'English' from the dropdown in Step 18.\n   - Tick the 'Free Listings' checkbox and click on 'Continue' in Step 19.\n\nStep 20: Enter the Primary Feed Name as “ name of the store - Product Feed ‘ Tick the option ‘ Scheduled\nFetch ‘ ( see screenshot below ) and Click ‘ Continue ‘ .\nStep 21: Enter the file name: as name of the store\nEnter the file URL in the second box field. (Create ticket to get the file URL for the store)",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\GOOGLE MERCHANT CENTER\\Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "source_filename": "Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "document_title": "Google Merchant Center   Steps By Step Instructions",
+      "category": "ONBOARDING > GOOGLE MERCHANT CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "57ec4263-631c-4521-811a-c1c0000061d1",
+      "parent_index": 4,
+      "total_parents": 7,
+      "is_parent": true
+    }
+  },
+  "996c792e-738d-4c58-9553-26b66908dc08": {
+    "content": "[Screenshot Description]: The screenshot displays the Google Merchant Center admin screen, specifically focused on setting up a primary feed for a store.\n\n1) **Admin Screen Section**: The screen is part of the product feed setup process within the Google Merchant Center.\n\n2) **Visible Elements**:\n   - **Language Selection**: A dropdown to choose the language, currently set to English.\n   - **Select Destinations**: A checkbox for \"Free listings.\"\n   - **Input Fields**: \n     - A primary feed name field.\n     - Options for choosing an input method: Google Sheets, Upload, or Content API.\n   - **Buttons**: \"Continue\" and \"Cancel.\"\n\n3) **Highlighted Elements**: \n   - Instructions to enter the primary feed name.\n   - Emphasis on ticking the \"Scheduled Fetch\" option.\n   - Steps include entering the file name and URL.\n\n4) **User Action Instructions**: The user is instructed to enter the primary feed name as \"name of the store - Product Feed,\" select \"Scheduled Fetch,\" click \"Continue,\" and subsequently enter the file URL in the designated field.\n\nStep 22: You can ignore the other fields and just click ‘ Create Feed ‘ to finish the job.\nThen, Google Merchant will process the product feeds in 24 - 48 hours.\ninstructions-2",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\GOOGLE MERCHANT CENTER\\Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "source_filename": "Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "document_title": "Google Merchant Center   Steps By Step Instructions",
+      "category": "ONBOARDING > GOOGLE MERCHANT CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "996c792e-738d-4c58-9553-26b66908dc08",
+      "parent_index": 5,
+      "total_parents": 7,
+      "is_parent": true
+    }
+  },
+  "92dc697e-3acd-4464-8049-f4c1b746afe8": {
+    "content": "[Screenshot Description]: The screenshot displays the \"Google Merchant Center\" admin interface, specifically the section for creating a feed.\n\n1) **Admin Screen/Section Disclosed**: This is the \"Setup\" section of the Google Merchant Center, where users enter details to create a product feed.\n\n2) **Visible Buttons, Fields, Menus, or Settings**:\n   - Fields for:\n     - File name\n     - Fetch frequency\n     - Fetch time\n     - Time zone\n     - File URL\n   - Buttons: \n     - \"Create Feed\"\n     - \"Back\"\n\n3) **Highlighted Elements**:\n   - The \"File name\" field\n   - The \"Fetch frequency\" field\n   - The \"Fetch time\" field\n   - The \"File URL\" field\n   - The \"Create Feed\" button\n\n4) **User Action Instruction**: The user is instructed to ignore the other fields and simply click the \"Create Feed\" button to complete the setup process.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\GOOGLE MERCHANT CENTER\\Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "source_filename": "Google Merchant Center - Steps-by-Step Instructions.pdf",
+      "document_title": "Google Merchant Center   Steps By Step Instructions",
+      "category": "ONBOARDING > GOOGLE MERCHANT CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "92dc697e-3acd-4464-8049-f4c1b746afe8",
+      "parent_index": 6,
+      "total_parents": 7,
+      "is_parent": true
+    }
+  },
+  "ad6cd76e-1418-4fb0-9ec2-3aaf64f136f2": {
+    "content": "Document: How To Accept The Latest Terms For Your Apple Developer Organization Account | Category: ONBOARDING > HELP CENTER\n\nBOTTLECAPPS\nHow to Accept the Latest Terms for Your\nApple Developer Organization Account\nGuide: How to Accept the Latest Terms for Your Apple Developer\nOrganization Account\nOverview\nApple periodically updates its Apple Developer Program License Agreement and related terms (e.g.,\nPaid Apps Agreement) to reflect new policies, features, or legal requirements. As the Account Holder\nfor an organization, you must review and accept these updates to maintain your account’s\nfunctionality, especially for app submissions and updates. Here’s how to do it:\nPrerequisites\nYou must be the Account Holder for your organization’s Apple Developer Program account.\nOnly the Account Holder has the authority to accept legal agreements.\nEnsure your Apple ID has two-factor authentication enabled, as this is required to access and\nmanage your developer account.\nHave your organization’s Apple ID credentials ready (email and password).\nStep-by-Step Instructions\n1. Log In to Your Apple Developer Account\nOpen a web browser and go to the Apple Developer website: developer.apple.com.\nClick Account in the top-right corner.\nSign in using the Apple ID associated with your organization’s Account Holder role. Enter\nyour email, password, and the 6-digit two-factor authentication code sent to your trusted\ndevice or phone number.\n2. Check for a Terms Notification\nOnce logged in, look for a banner or notification at the top of the Apple Developer\nhomepage. It may say something like:\n\"The updated Apple Developer Program License Agreement needs to be reviewed and\naccepted.\"\nIf you see this, click the link in the banner (e.g., “Review Agreement” or “Go to\nAgreements”) to proceed. If no banner appears, move to Step 3 to manually check for\nupdates.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\HELP CENTER\\How to Accept the Latest Terms for Your Apple Developer Organization Account.pdf",
+      "source_filename": "How to Accept the Latest Terms for Your Apple Developer Organization Account.pdf",
+      "document_title": "How To Accept The Latest Terms For Your Apple Developer Organization Account",
+      "category": "ONBOARDING > HELP CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "ad6cd76e-1418-4fb0-9ec2-3aaf64f136f2",
+      "parent_index": 0,
+      "total_parents": 3,
+      "is_parent": true
+    }
+  },
+  "405f6133-6901-4b8b-9b39-6749760e69a6": {
+    "content": "\n\n3. Navigate to Agreements in App Store Connect\nIf no banner is present, or if the banner directs you to App Store Connect, proceed as\nfollows:\nGo to appstoreconnect.apple.com and log in with the same Apple ID credentials.\nFrom the homepage, locate any notification about updated agreements. It might\nappear as a yellow bar at the top.\nAlternatively, click Business (or “Agreements, Tax, and Banking” depending on your\ninterface) in the left sidebar or top navigation.\n4. Review Available Agreements\nIn the Agreements section, you’ll see a list of agreements tied to your account, such as:\nApple Developer Program License Agreement (for free apps and membership).\nPaid Apps Agreement (Schedules 2 and 3, required for paid apps or in-app\npurchases).\nLook for any agreements marked with a status like “Updated” or an “Action” column with a\nbutton (e.g., “View and Agree to Terms”).\nClick on the agreement title or the “View” button to open it.\n5. Read and Accept the Terms\nCarefully review the updated terms. These might include changes to policies, APIs, tax\nobligations, or regional legal updates (e.g., VAT/GST clarifications).\nScroll to the bottom of the agreement.\nCheck the box to confirm you’ve read and agree to the terms (if prompted), then click\nAgree or Submit.\nNote: Some interfaces may present an “Agree” button directly without a checkbox.\nIf prompted for two-factor authentication again, enter the code to proceed.\n6. Verify Acceptance\nAfter accepting, return to the Agreements section in App Store Connect or the Apple\nDeveloper homepage to confirm the agreement status has updated (e.g., “Active” or no\npending action required).\nIf the notification persists, log out and back in to refresh the interface, or wait a few\nminutes for the system to process.\n7. Check for Additional Agreements\nIf your organization distributes paid apps or in-app purchases, ensure the Paid Apps\nAgreement is also accepted. Repeat Steps 4–6 for this agreement if it’s listed separately\nand requires action.\nLook under the “Action” column for any other pending agreements and address them\nsimilarly.\n8. Troubleshooting (If Needed)",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\HELP CENTER\\How to Accept the Latest Terms for Your Apple Developer Organization Account.pdf",
+      "source_filename": "How to Accept the Latest Terms for Your Apple Developer Organization Account.pdf",
+      "document_title": "How To Accept The Latest Terms For Your Apple Developer Organization Account",
+      "category": "ONBOARDING > HELP CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "405f6133-6901-4b8b-9b39-6749760e69a6",
+      "parent_index": 1,
+      "total_parents": 3,
+      "is_parent": true
+    }
+  },
+  "9f7e436a-b33d-4139-a4bc-0df88626c40b": {
+    "content": "No “Agree” Option Appears: If you see the agreement but can’t accept it (e.g., only a\n“Close” button), this could be a glitch. Try:\nLogging out and back in.\nUsing a different browser or clearing your cache.\nContacting Apple Developer Support at developer.apple.com/contact or calling their\nsupport line for your region.\nUnsure Which Agreements Apply: The Apple Developer Program License Agreement is\nmandatory for all members. The Paid Apps Agreement is required only if you offer paid\ncontent.\nStill Seeing a Notification: Ensure you’re signed in as the Account Holder, not another\nteam member with a different role (e.g., Admin or Developer).\n9. Maintain Compliance\nRegularly check your developer account for future updates, as Apple may release new\nterms periodically.\nKeep your organization’s legal entity information (e.g., name, address, D-U-N-S Number)\nup to date in the Membership Details section of developer.apple.com/account to avoid\ndelays.\nAdditional Notes\nDeadline: Accept updates promptly, as failure to do so may block app submissions or updates\nuntil resolved.\nDocumentation: You can download a PDF of the agreement for your records after accepting it.\nSupport: For organization-specific issues (e.g., transferring the Account Holder role or updating\nlegal entity details), contact Apple Developer Support directly.\nBy following this guide, you’ll ensure your Apple Developer organization account is compliant with the\nlatest terms as of March 10, 2025, keeping your app development and distribution on track. If you\nencounter any issues, Apple’s support team is your best resource for resolution.\ndeveloper-organization-account",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\HELP CENTER\\How to Accept the Latest Terms for Your Apple Developer Organization Account.pdf",
+      "source_filename": "How to Accept the Latest Terms for Your Apple Developer Organization Account.pdf",
+      "document_title": "How To Accept The Latest Terms For Your Apple Developer Organization Account",
+      "category": "ONBOARDING > HELP CENTER",
+      "chunk_strategy": "parent_child",
+      "parent_id": "9f7e436a-b33d-4139-a4bc-0df88626c40b",
+      "parent_index": 2,
+      "total_parents": 3,
+      "is_parent": true
+    }
+  },
+  "0e149d3c-af3b-4aed-a350-6bfd1c3ba65f": {
+    "content": "Document: Filling Out The Bottlecapps New Store Formstack | Category: ONBOARDING > ONBOARDING TUTORIALS (App & Web)\n\nTip: Please note! If you don't know an answer, please enter N/ | A\n\nBOTTLECAPPS\nFilling out the Bottlecapps New Store\nFormstack\nTip: Please note! If you don't know an answer, please enter N/A\n1. Go through and accurately enter all the fields you can.\n2. If you have a TD Linx #, enter it here. If you don't know it, you can enter 0\n\n3. Backend Login ID is just a username. We can add multiple usernames later.\n4. Please copy your store address as it appears in Google Maps (this is what Bottlecapps uses for\naddress verification).\n\n5. Enter the store address here.\n6. Enter the store phone number",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Filling out the Bottlecapps New Store Formstack.pdf",
+      "source_filename": "Filling out the Bottlecapps New Store Formstack.pdf",
+      "document_title": "Filling Out The Bottlecapps New Store Formstack",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "0e149d3c-af3b-4aed-a350-6bfd1c3ba65f",
+      "parent_index": 0,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "a3ceb96c-20ec-4ac5-a461-8ac547aae74d": {
+    "content": "[Screenshot Description]: This screenshot depicts Page 3 of the Bottlecapps admin tutorial focused on filling out the New Store Formstack.\n\n1) **Admin Screen/Section**: The New Store Formstack within the Bottlecapps admin dashboard.\n   \n2) **Buttons, Fields, Menus, or Settings**: The form includes fields for \"Store Name,\" \"Store's Legal Entity Name,\" \"Backend Login ID (Email Address),\" \"Address,\" and \"Store Phone Number.\" There are fields for two address lines, city, state/province, and postal/ZIP code.\n\n3) **Highlighted Elements**: The \"Address\" field is highlighted with an orange box, indicating it is important to copy this information exactly from Google. The \"Store Phone Number\" field is also indicated for user input.\n\n4) **User Action**: The user is instructed to enter the store address and store phone number in the specified fields.\n\n7. Enter your store hours Mon-Sun here.\n8. If you have a logo handy while filling out this form, please attach it here. If you have to find it,\nplease check the \"NO\" box. We will get it later.\n\n9. Click \"Next\" to go to the next set of questions.\n10. Email ID for alerts is the inbox which will receive order notification emails.\n\n11. Click here to move on to the next section.\n12. Enter the contact details for Bottlecapps to reach you directly.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Filling out the Bottlecapps New Store Formstack.pdf",
+      "source_filename": "Filling out the Bottlecapps New Store Formstack.pdf",
+      "document_title": "Filling Out The Bottlecapps New Store Formstack",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "a3ceb96c-20ec-4ac5-a461-8ac547aae74d",
+      "parent_index": 1,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "040a3c53-ac90-4ab5-98c0-a30806e6a617": {
+    "content": "[Screenshot Description]: The screenshot displays the \"Order Related Info\" section of the Bottlecapps admin tutorial, specifically from the New Store Formstack.\n\n1) **Admin Screen/Section**: This is the \"Order Related Info\" section of the Bottlecapps New Store Formstack.\n\n2) **Visible Elements**: The following buttons, fields, and settings are visible:\n   - An input field labeled \"Email ID for Order Alerts\" marked as required.\n   - A yes/no question asking if \"coupons are allowed in your state.\"\n   - A yes/no question asking if the user wants to \"accept Online Payments.\"\n   - A yes/no question asking if the user wants to \"offer delivery service.\"\n   - A dropdown to \"Select a Delivery Service Provider\" with options for \"DoorDash\" or \"Own Delivery.\"\n   - \"Previous\" and \"Next\" buttons at the bottom of the page.\n\n3) **Highlighted Elements**: The \"Email ID for Order Alerts\" field is highlighted, and there is a circular indicator around it. The \"Next\" button is also highlighted with an arrow pointing towards it.\n\n4) **User Action Instruction**: The user is instructed to enter the email contact details for Bottlecapps to reach them directly, and then to click the \"Next\" button to proceed to the next section of the form.\n\n13. Click \"Next\".\n14. Find your POS on the dropdown. If you don't see it, click \"OTHER\".",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Filling out the Bottlecapps New Store Formstack.pdf",
+      "source_filename": "Filling out the Bottlecapps New Store Formstack.pdf",
+      "document_title": "Filling Out The Bottlecapps New Store Formstack",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "040a3c53-ac90-4ab5-98c0-a30806e6a617",
+      "parent_index": 2,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "fb2a1c77-0484-4a91-bf3b-e9af7203fb79": {
+    "content": "[Screenshot Description]: The screenshot shows the admin screen for filling out the Bottlecapps New Store Formstack.\n\n1) **Admin Screen/Section**: The section for entering store contact information, specifically the \"Store Contact Name\" and \"Contact Person Phone Number.\"\n\n2) **Visible Elements**:\n   - **Fields**: \n     - \"Store Contact Name\" with first name and last name fields.\n     - \"Contact Person Phone Number\" field.\n   - **Buttons**: \n     - \"Previous\" button.\n     - \"Next\" button.\n   - **Additional Text**: A question asking if the provided phone number is the best way to reach the user.\n\n3) **Highlighted Elements**: The \"Next\" button is highlighted and there is a circle surrounding the option to confirm if the provided phone number is the best to reach the user.\n\n4) **User Action**: The user is instructed to fill in the contact information and then click the \"Next\" button to proceed.\n\n15. Select your country of business.\n16. Please enter accurate records from your POS into this field. We need at least 4 items with a UPC,\nsize and price in order to map your products effectively.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Filling out the Bottlecapps New Store Formstack.pdf",
+      "source_filename": "Filling out the Bottlecapps New Store Formstack.pdf",
+      "document_title": "Filling Out The Bottlecapps New Store Formstack",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "fb2a1c77-0484-4a91-bf3b-e9af7203fb79",
+      "parent_index": 3,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "2892dc6a-39a2-499a-b62c-8e57e1207821": {
+    "content": "[Screenshot Description]: The screenshot displays the \"POS Details\" section of the Bottlecapps New Store Formstack.\n\n1. **Admin Screen/Section**: The \"POS Details\" section of the Bottlecapps New Store Formstack.\n\n2. **Visible Elements**: \n   - Fields for \"What is your POS system?\", \"Country\", \"Is your POS Inventory controlled?\", and \"Please select the products your store sells\".\n   - Dropdown menus for selecting options.\n   - An instruction text that emphasizes the need for accurate data.\n\n3. **Highlighted Elements**: \n   - The \"Country\" dropdown is highlighted, with \"United States\" and \"Canada\" displayed as options.\n   - The \"What is your POS system?\" input field is highlighted.\n\n4. **User Action Instructed**: The user is instructed to select their country of business and enter accurate records from their POS system, including at least 4 items with UPC, size, and price, to ensure effective product mapping.\n\n17. SUBMIT FORM once you complete the last question.\n\n[Screenshot Description]: The screenshot shows the admin section for filling out the Bottlecapps New Store Formstack.\n\n1) **Admin Screen/Section**: The screen displays the final part of the Bottlecapps New Store Formstack.\n\n2) **Visible Elements**: It includes fields for entering tax rates, product information (name, UPC, retail price), a question about deposits for beer, and a text area for entering social media links you'd like to appear on the website. \n\n3) **Highlighted Elements**: The text field for entering product details is highlighted, along with the \"Submit Form\" button, which is circled.\n\n4) **User Action Instruction**: The user is instructed to complete the last question and then click the \"Submit Form\" button.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Filling out the Bottlecapps New Store Formstack.pdf",
+      "source_filename": "Filling out the Bottlecapps New Store Formstack.pdf",
+      "document_title": "Filling Out The Bottlecapps New Store Formstack",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "2892dc6a-39a2-499a-b62c-8e57e1207821",
+      "parent_index": 4,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "585e678b-9f21-4726-a1c1-6916f89aef15": {
+    "content": "Document: Purchasing A Domain On Godaddy | Category: ONBOARDING > ONBOARDING TUTORIALS (App & Web)\n\nBOTTLECAPPS\nPurchasing a Domain on GoDaddy\n1. Visit GoDaddy.com and search for the domain you'd like to purchase.\n2. Once you enter your desired domain, click \"Search Domains\".\n3. Once you find the domain you like, \"Make It Yours\".\n\n[Screenshot Description]: ### Knowledge Base Description for \"Purchasing a Domain on GoDaddy\"\n\n1. **Admin Screen or Section Displayed**: The screenshot shows the GoDaddy homepage, specifically the domain search section.\n\n2. **Visible Buttons, Fields, Menus, or Settings**: \n   - A text field where the user can input their desired domain (\"Type the domain you want\").\n   - A button labeled \"Search Domains\".\n   - Various sections for website creation and domain marketing.\n\n3. **Highlighted Elements**: \n   - An instruction to \"Welcome to your launch pad\" is circled.\n   - The \"Search Domains\" button is highlighted as the next action step.\n\n4. **Action Instructed**: The user is instructed to enter their desired domain name into the text field and then click the \"Search Domains\" button to search for available options.\n\n4. Click \"Get It\" if you want to add an email to your package. Otherwise, click \"No Thanks\".\n5. Click here",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Purchasing a Domain on GoDaddy.pdf",
+      "source_filename": "Purchasing a Domain on GoDaddy.pdf",
+      "document_title": "Purchasing A Domain On Godaddy",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "585e678b-9f21-4726-a1c1-6916f89aef15",
+      "parent_index": 0,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "c0e2f27f-9bd9-452b-89c6-9d482c39c4cd": {
+    "content": "[Screenshot Description]: The screenshot displays the following elements from the GoDaddy admin screen related to purchasing a domain:\n\n1. **Admin Screen/Section**: The domain purchasing screen on the GoDaddy website, showing options for purchasing the domain \"mybottlecappsite.com.\"\n\n2. **Visible Elements**:\n   - **Buttons**: \"Make It Yours,\" \"Get It,\" and \"No Thanks.\"\n   - **Fields**: Domain name with pricing information ($16.93 for \"mybottlecappsite.net\").\n   - **Menus/Settings**: Options related to domain bundle and email package features.\n\n3. **Highlighted Elements**:\n   - A box outlining the \"Starter Domain Bundle\" with details of the features it includes.\n   - The \"Get It\" button is highlighted as an action point for adding an email service.\n\n4. **User Action Instruction**: The user is instructed to click \"Get It\" if they want to add an email to their package; otherwise, they can click \"No Thanks.\"\n\n6. \"Looks Good, Keep Going\" will take you to the cart.\n7. You don't need the domain protection, but it doesn't hurt to add it. Once you decide, click \"Continue to\nCart\".",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Purchasing a Domain on GoDaddy.pdf",
+      "source_filename": "Purchasing a Domain on GoDaddy.pdf",
+      "document_title": "Purchasing A Domain On Godaddy",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "c0e2f27f-9bd9-452b-89c6-9d482c39c4cd",
+      "parent_index": 1,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "7a2bac28-db13-47db-bd64-004a5d70bd4f": {
+    "content": "[Screenshot Description]: The screenshot shows the following:\n\n1) **Admin Screen or Section Displayed**: The \"Purchasing A Domain\" section on the GoDaddy website.\n\n2) **Visible Buttons, Fields, Menus, or Settings**:\n   - Two \"Get It\" buttons associated with online credit card processing.\n   - A \"No Thanks\" button.\n   - The domain search results area displaying prices for various domains, including options for \"Continue\" and \"Make It Yours\".\n\n3) **Highlighted, Circled, or Pointed Elements**:\n   - The \"Looks Good, Keep Going\" text, which is pointed out as being a prompt to take the user to the cart.\n   - An item listed with the value of $0.01 and a subtotal of $43.99 is visible at the bottom.\n\n4) **User Action Instructed**: The user is instructed to click \"Continue to Cart\" after deciding whether to add domain protection.\n\n8. You're almost done!\n9. Here you'll decide how long you want to purchase the domain for. It is recommended that\nyou purchase for as long as possible to ensure you don't lose access to your domain.\n10. \"I'm Ready to Pay\" takes you to the payment screen (or to the \"create an account\" screen. After you",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Purchasing a Domain on GoDaddy.pdf",
+      "source_filename": "Purchasing a Domain on GoDaddy.pdf",
+      "document_title": "Purchasing A Domain On Godaddy",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "7a2bac28-db13-47db-bd64-004a5d70bd4f",
+      "parent_index": 2,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "2bcbe9e1-4b41-4855-a55b-9822bb3dd98b": {
+    "content": "[Screenshot Description]: The screenshot provided shows the following:\n\n1) **Admin Screen/Section**: The page is an overview of the cart for purchasing a domain on GoDaddy, specifically displaying options for domain privacy and protection.\n\n2) **Buttons, Fields, Menus, or Settings Visible**: Visible elements include:\n   - A button labeled “Continue to Cart.”\n   - Sections for domain protection options with associated prices.\n   - A cart summary showing selected items and total cost.\n\n3) **Highlighted Elements**: Elements that are highlighted include:\n   - The button “Continue to Cart.”\n   - The domain protection options with a recommendation for one of the types.\n   - A note about purchasing the domain for a longer duration to save money on renewals.\n\n4) **User Action Instructed**: The user is being instructed to click on the “Continue to Cart” button to proceed with the domain purchase.\n\ncomplete this step, you'll be able to give access of your domain to your website provider.\n11. Complete your purchase after you've entered your payment details and created your account.\n\n[Screenshot Description]: The screenshot from page 5 of the \"Purchasing A Domain On GoDaddy\" tutorial shows a GoDaddy checkout screen for completing a domain purchase. \n\n1. **Admin Screen/Section**: The GoDaddy checkout page for domain purchase.\n\n2. **Visible Buttons, Fields, Menus, Settings**:\n   - \"Get It\" button for adding the domain to the cart.\n   - Payment options, including \"PayPal\" and \"I'm Ready to Pay\" buttons.\n   - Fields displaying the subtotal ($43.99), taxes and fees ($0.54), and total ($44.53).\n\n3. **Highlighted Elements**:\n   - A circular highlight indicating the \"Complete Purchase\" button.\n   - An indication of the savings ($21.98) on the order.\n\n4. **Action Being Instructed**: The user is instructed to enter their payment details and click \"Complete Purchase\" to finalize the domain purchase.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\ONBOARDING TUTORIALS (App & Web)\\Purchasing a Domain on GoDaddy.pdf",
+      "source_filename": "Purchasing a Domain on GoDaddy.pdf",
+      "document_title": "Purchasing A Domain On Godaddy",
+      "category": "ONBOARDING > ONBOARDING TUTORIALS (App & Web)",
+      "chunk_strategy": "parent_child",
+      "parent_id": "2bcbe9e1-4b41-4855-a55b-9822bb3dd98b",
+      "parent_index": 3,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "2e53a387-7521-4a5c-bbc9-60100a86c418": {
+    "content": "Document: Auth Net Kb | Category: ONBOARDING > PAYMENT PROCESSOR TUTORIALS\n\nLog into the Merchant Interface.\nClick Virtual Terminal from the left side menu.\nUnder Select Payment Method choose Refund a Credit Card\nProvide customer information as requested on the Virtual Terminal screen. Minimum information needed to issue a refund\nincludes the original transaction ID, the last four digits of the account that was charged, and the amount of the refund.\nWhen issuing a refund for a transaction, the transaction ID assigned to the original transaction must be entered in the \"Original\nTransaction ID\" field. The Transaction ID can be located by viewing the original transaction details.\nIn a transaction details, only the last four digits of the credit card number or bank account are viewable.\nClick Submit.\n\nBOTTLECAPPS\nAuthorize.net - Setup and FAQ\nQ: How do I issue a refund using Authorize.Net?\nA: To issue a refund using Authorize.Net, log in to your account and navigate to the Transactions tab. Find the transaction you want to\nrefund, click on it, and then click the Refund button. Enter the refund amount and any necessary information, then click Submit.\nTo issue a refund using the Virtual Terminal, follow these steps:\n1. Log into the Merchant Interface.\n2. Click Virtual Terminal from the left side menu.\n3. Under Select Payment Method choose Refund a Credit Card\n4. Provide customer information as requested on the Virtual Terminal screen. Minimum information needed to issue a refund\nincludes the original transaction ID, the last four digits of the account that was charged, and the amount of the refund.\n5. When issuing a refund for a transaction, the transaction ID assigned to the original transaction must be entered in the \"Original\nTransaction ID\" field. The Transaction ID can be located by viewing the original transaction details.\n6. In a transaction details, only the last four digits of the credit card number or bank account are viewable.\n7. Click Submit.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "2e53a387-7521-4a5c-bbc9-60100a86c418",
+      "parent_index": 0,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "931fd8f4-d834-43a4-87ab-d1022dd86506": {
+    "content": "Q: How can I test a transaction using Authorize.Net's Virtual Terminal?\nA: To test a transaction using Virtual Terminal, log in to your Authorize.Net account and go to Virtual Terminal. Enter the credit card\nnumber (e.g., 4111111111111111), expiration date, and the 3 or 4 digit number for the CVV code. For the address, use a valid",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "931fd8f4-d834-43a4-87ab-d1022dd86506",
+      "parent_index": 1,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "df4b9bba-8a22-4c82-8877-3a79ef89f0c0": {
+    "content": "[Screenshot Description]: 1) The admin screen displayed is the Virtual Terminal section of the Authorize.Net interface.\n\n2) Visible elements include:\n   - Select Payment Method dropdown with an option for \"Refund a Credit Card.\"\n   - Fields for customer information (e.g., Original Transaction ID, last four digits of the account, and refund amount).\n   - Buttons for executing actions, such as Submit.\n\n3) The elements highlighted include:\n   - The \"Select Payment Method\" section, likely indicating where to choose \"Refund a Credit Card.\"\n   - Fields related to customer information and transaction details, suggesting their importance for processing the refund.\n\n4) The user is being instructed to issue a refund for a transaction, specifically by entering required information in the Virtual Terminal and clicking the Submit button.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "df4b9bba-8a22-4c82-8877-3a79ef89f0c0",
+      "parent_index": 2,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "15defa3b-b38f-45ba-a4f4-c5499e9c21eb": {
+    "content": "\n\naddress format. Click Submit to process the charge. The results of the charge attempt will be provided on the next page.\nWhat is the purpose of the API Login ID, Transaction Key, Signature Key and Public Key for Authorize.net, and how can I\nobtain them?\nThe API Login ID and Transaction Key are unique to your account. They are used to connect your website or other integrated business\napplication to the Authorize.net Payment Gateway for transaction processing. Please note that they are not valid for logging\ninto the Merchant Interface. The API Login ID is sensitive account information and should only be shared on a need-to-know basis, for\nexample with your Web developer for the purposes of integration with the payment gateway.\nAPI Login ID\nThe API Login ID is a complex value that identifies your account to the payment gateway when submitting transaction requests from\nyour website. The API Login ID is at least eight characters in length and includes uppercase and lowercase letters, numbers, and/or\nsymbols.\nTransaction Key\nThe Transaction Key is a 16-character alphanumeric value that is randomly generated in the Merchant Interface and is used as an\nadditional layer of authentication when submitting transaction requests from your website. The Transaction Key will not be visible at\nany other time in the Merchant Interface. You must record it temporarily or copy and paste it to a secure file location immediately. Like\nthe API Login ID, the Transaction Key is sensitive account information and should only be shared on a need-to-know basis, for example\nwith your Web developer for the purposes of integration with the payment gateway.\nSteps to Generate Your API ID and Transaction Key\nSign into the Merchant Interface.\nSelect Account from the main toolbar.\nUnder Security Settings, select API Credentials & Keys.\nBased on the need and integration, select New Transaction Key or New Signature Key.\nTo disable the old Transaction or Signature Key, check the box labeled Disable Old Transaction/Signature Key Immediately.\nIf the Disable Old Transaction/Signature Key check box is not selected, the old Transaction or Signature Key will automatically\nexpire in 24 hours.\nSelect Submit to continue.\nRequest and enter PIN for verification.\nYour new Transaction/Signature Key is displayed.\n",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "15defa3b-b38f-45ba-a4f4-c5499e9c21eb",
+      "parent_index": 3,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "e07cfdaa-6296-4bd0-b987-81c45efaa38e": {
+    "content": "Q: What are some common error codes when using Authorize.Net?\nA: Some common error codes you may encounter when using Authorize.Net include:\nE00027: This error indicates that the transaction was declined due to an invalid payment method.\nE00039: This error occurs when the transaction is not allowed based on the current account settings.\nE00040: This error indicates that the transaction was declined due to an issue with the card number.\nE00041: This error occurs when the transaction is declined due to an issue with the card expiration date.\nE00054: This error indicates that the transaction was declined due to an issue with the card CVV code.\nIf you encounter any of these errors, double-check the payment information you entered and ensure that your account settings are\nconfigured correctly.\nHow to access and setup Advance Fraud Detection Suite?\nLog into the Merchant Interface.\nClick Fraud Detection Suite in the main left side menu.\nClick Setup Wizard.\nFollow every step in the Wizard, so your settings will be successfully applied.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "e07cfdaa-6296-4bd0-b987-81c45efaa38e",
+      "parent_index": 4,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "b42de604-6479-4498-895f-8b7a984c2176": {
+    "content": "[Screenshot Description]: The screenshot shows the \"API Credentials & Keys\" section of the Authorize.Net admin interface.\n\n1) **Admin Screen/Section**: API Credentials & Keys.\n   \n2) **Visible Elements**: \n   - API Login ID\n   - Transaction Key\n   - A button labeled \"Create New Keys\" with options for \"New Transaction Key\" and \"New Signature Key\"\n   - A \"Submit\" button\n   - A \"Cancel\" button\n   - Text advising on security measures regarding the API and Signature Keys\n\n3) **Highlighted Elements**: An arrow points to the \"API Login ID\" field, indicating its importance.\n\n4) **User Action Instruction**: The user is instructed to disable the old Transaction Key and/or Signature Key by checking the relevant option immediately or else it will automatically expire in 24 hours.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "b42de604-6479-4498-895f-8b7a984c2176",
+      "parent_index": 5,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "f218bc94-8b91-4bd0-b6bf-e602c92db8b0": {
+    "content": "You can navigate through the wizard using Save (to save the changes) or Back (to go back to a previous setting) buttons located at the\nbottom of the page. If you decide not to enable a certain filter or setting right away, simply click Skip›› at the bottom of the page. The\nonly time settings are saved is when you click the Save button (regardless of whether you clicked the check box to enable the filter). You\ncan click Exit at any time to leave the Wizard, or wait until the end to click Finish. Regardless of if you leave the Wizard early or not,\nany settings you save will stay saved.\nAdvance Fraud Detection Suite Filters and Tools\nCard Testing Settings: These filters help protect your account from abuse by fraudsters who are testing credit cards, and let you identify\nhigh-volume fraud attacks.\nDaily Velocity Filter: This filter allows you to specify a threshold for the number of transactions allowed per day. All transactions\nexceeding the threshold in that day will be flagged and processed according to the filter action.\nHourly Velocity Filter: This filter allows you to specify a threshold for the number of transactions allowed per hour. All transactions\nexceeding the threshold will be flagged and processed according to the filter action.\nSuspicious Transaction Filter: This filter triggers on highly suspicious transactions using proprietary criteria identified by\nAuthorize.net. All transactions that meet this criteria will be flagged and processed according to the filter action.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "f218bc94-8b91-4bd0-b6bf-e602c92db8b0",
+      "parent_index": 6,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "4f14e91e-b8a4-4279-9eff-568415eaad2c": {
+    "content": "[Screenshot Description]: The screenshot displays the \"Advanced Fraud Detection Suite\" section within the Bottlecapps admin tutorial.\n\n1. **Admin Screen Section:** The \"Advanced Fraud Detection Suite\" (AFDS) settings for transaction filtering and fraud detection.\n   \n2. **Visible Elements:** \n   - \"Suspicious Transaction Reports\" with \"Authorized/Pending Review\" and \"Pending Review\" indicators.\n   - Transaction filters: \"Velocity Filter,\" \"Suspicious Transaction Filter,\" \"Shipping/Billing Mismatch Filter,\" and \"Transaction IP Velocity Filter.\"\n   - \"IP Administration\" section with \"Tool Name\" and \"Configuration\" options.\n   - General settings headers: \"Transaction Search,\" \"Setup Wizard,\" \"Customer Response,\" \"Email Notification,\" and \"Documentation.\"\n\n3. **Highlighted Elements:** \n   - The \"Advanced Fraud Detection Suite\" section is prominently boxed in red at the top.\n   - Specific filters listed under \"Transaction Filters\" are indicated by numbers and configuration status.\n\n4. **User Action Instructions:** Users are guided to click on a filter to configure its settings or to view related tools and to utilize the \"Save\" button to apply changes. They can also choose to skip settings or exit the wizard at any time.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "4f14e91e-b8a4-4279-9eff-568415eaad2c",
+      "parent_index": 7,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "7a11f65e-194a-4f7d-9649-49837f77bd50": {
+    "content": "\n\nTransaction IP Velocity Filter: This filter allows you to specify the maximum number of transactions allowed from the same Internet\nprotocol (IP) address per hour. All transactions that meet this criteria will be flagged and processed according to the filter action.\nAdvanced Integration Method (AIM) transactions must include the customer IP address (x_customer_ip) and user of Authorize.net API\nmust include customerIP in order to use this tool.\nTransaction Settings: These filters let you identify high risk transactions through Address Verification, Card Code Verification, and\nsetting a maximum order amount.\nEnhanced AVS Handling Filter: The Address Verification Service (AVS) is a standard feature of the payment gateway that compares\nthe address submitted with an order to the address on file with the customer's credit card issuer. Merchants can then choose to reject or\nallow transactions based on the AVS response codes. AFDS includes an AVS filter that assists the decision process by allowing\nmerchants the additional options of flagging AVS transactions for monitoring purposes, or holding them for manual review.\nEnhanced CCV Handling Filter: Like AVS, Card Code Verification (CCV) is a standard feature of the payment gateway. CCV uses a\ncard's three- or four-digit number to validate customer information on file with the credit card association. Like the AVS Filter, the CCV\nFilter allows merchants the additional options of flagging CCV transactions for monitoring purposes, or holding them for manual review.\nAmount Filter: Set lower and upper transaction amount thresholds to restrict high-risk transactions often used to test the validity of\ncredit card numbers. Transactions that are submitted with an amount less than your lower limit or greater than your upper limit will be\nflagged and processed according to the filter action selected. Be careful when setting an upper limit amount, as any combination of\nhigher priced items may be purchased. You may want to search your transaction history for the highest transaction amounts you've\nprocessed in the past to determine an appropriate upper limit.\nE-Commerce Settings: These filters help prevent common e-commerce fraud scenarios by verifying and comparing billing addresses,\nshipping addresses, and IP address locations.\nShipping Address Verification Filter: Verifies that the shipping address received with an order is a valid postal address.\nIP Shipping Address Mismatch Filter: Compare the shipping address provided with an order to the IP address of where the order\noriginated from. This helps to determine whether or not the order is shipping to the country from which it originated. Advanced\nIntegration Method (AIM) transactions must include the customer IP address (x_customer_ip) and user of Authorize.net API must\ninclude customerIP in order to use this tool.\nRegional IP Address Filter: Flag orders coming from specific regions or countries. You can choose to customize the filter actions based\non an entire geographic area, or select country by country how to process transactions flagged by the filter.\nShipping-Billing Mismatch Filter: Identify high-risk transactions with different shipping and billing addresses, potentially indicating\npurchases made using a stolen credit card. If the two addresses do not match, the transaction is flagged and processed according to the\nfilter action selected. This filter does not consider extra white spaces (the space key) at the end of the address information and is not case\nsensitive when checking for a mismatch. You may want to keep in mind that address mismatches are common with gift transactions and\ndo not always indicate suspicious transactions. In order to use this filter, you must require both shipping and billing address information\non your website's payment form; otherwise the filter cannot compare information.\nIP Address Administration: These filters let you block specific customers’ IP addresses to prevent known sources of fraud. If you use\nour APIs, you may also specify which server IP addresses should be trusted by the payment gateway.\nAuthorized API IP Addresses: Configure a list of authorized server IP addresses from which API transactions will be accepted by the\npayment gateway. Any API transaction submitted from an IP address not included on this list will be rejected.\nIP Address Blocking: IP Address Blocking allows you to block transactions submitted from IP addresses known to be the source of\nsuspicious or fraudulent transactions. Advanced Integration Method (AIM) transactions must include the customer IP address\n(x_customer_ip) and user of Authorize.net API must include customerIP in order to use this tool.\nActions that can be performed on these filters",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "7a11f65e-194a-4f7d-9649-49837f77bd50",
+      "parent_index": 8,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "4010354f-b217-40c7-a8d1-bdbb1995f6c4": {
+    "content": "\n\nProcess as normal and report filter(s) triggered: When this action is selected, transactions that trigger this filter are processed as\nnormal, but are also reported in the Merchant Interface as triggering this filter. This action is useful if you want to \"test\" your filter\nsettings.\nAuthorize and hold for review: When this action is selected, transactions that trigger this filter are sent for authorization, and upon\nsuccessful authorization are placed in the Authorized/Pending Review state. Once in Authorized/Pending Review, you will have 30 days\nto manually review and either approve or void the transaction. If no action is taken in the 30-day period, the transaction will expire. This\naction is useful if you want to review authorized transactions prior to submitting for settlement.\nDo not authorize, but hold for review: When this action is selected, transactions that trigger this filter are placed in the Pending\nReview state prior to being sent for authorization. Once in Pending Review, you will have 5 days to manually review and either approve\nor decline the transaction. Once you approve the transaction, it is sent for authorization. If no action is taken in the 5-day period, the\ntransaction will expire. This action is useful if you want to review transactions prior to authorization to avoid incurring any associated\nauthorization fees.\nDecline the transaction: When this action is selected, transactions that trigger the filter will be declined automatically prior to\nauthorization. This is the most severe action you can take for a transaction.\nWhat is Address Verification Service (AVS) and how to use and configure it?\nYou can configure the AVS filter settings in the Merchant Interface to specify when a transaction should be rejected based on the results\nof the AVS match. The following result codes are possible:\nA = Street Address: Match - First 5 Digits of ZIP: No Match - This signifies a perfect match between the street address entered by\nthe customer and the billing address on file with the credit card issuing bank, but a mismatch between ZIP codes.\nB = Address not provided for AVS check or street address match, postal code could not be verified - This signifies that the\ntransaction was submitted to Authorize.net without address information, so the AVS check could not be performed.\nE = AVS Error - This signifies that an error occurred on the processing network while processing the AVS request, so AVS\ninformation is not available for this transaction.\nG = Non U.S. Card Issuing Bank - This means the credit card-issuing bank is not of U.S. origin and does not support the AVS\nsystem.\nN = Street Address: No Match - First 5 Digits of ZIP: No Match - Neither the street address nor the ZIP code provided by the\ncustomer matches the billing address and ZIP code on file with the card issuing bank.\nP = AVS not applicable for this transaction - This code is returned when address information is not checked against the AVS\nsystem. Examples include eCheck transactions, credits, voids, prior auth capture transactions, capture only transactions, declines, and\nother transactions that do not include address checking.\nR = Retry, System Is Unavailable - This means AVS was unavailable on the processing network or the processor did not respond.\nS = AVS Not Supported by Card Issuing Bank - This means the card issuing bank does not support AVS.",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "4010354f-b217-40c7-a8d1-bdbb1995f6c4",
+      "parent_index": 9,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "5dcd2bf2-6e9c-4123-99d0-6cd264465513": {
+    "content": "What is Card Code Verification (CVV) and how to use and configure it?\nYou can configure the CCV filter settings in the Merchant Interface to specify when a transaction should be rejected based on the results\nof the CCV match. The following result codes are possible:\n\nU = Address Information For This Cardholder Is Unavailable - This means address information is not available for the\ncustomer's credit card at the processor.\nW = Street Address: No Match - All 9 Digits of ZIP: Match - The nine-digit ZIP code provided matches the billing ZIP code on\nfile with the card-issuing bank, but the street address provided does not match.\nX = Street Address: Match - All 9 Digits of ZIP: Match - The nine-digit ZIP code and street address provided matches the billing\nZIP code and street address on file with the card issuing bank.\nY = Street Address: Match - First 5 Digits of ZIP: Match - The five-digit ZIP code and street address provided matches the billing\nZIP code and street address on file with the card-issuing bank.\nWhat is Card Code Verification (CVV) and how to use and configure it?\nYou can configure the CCV filter settings in the Merchant Interface to specify when a transaction should be rejected based on the results\nof the CCV match. The following result codes are possible:\nM = Match - The CVV2 code entered matched that of the credit card.\nN = Does Not Match - The code entered is incorrect.\nP = Is Not Processed - The code was not validated.\nS = Should be on card but not so indicated - The customer left that field blank.\nU = Issuer not certified or has not provided encryption key - The card issuing bank does not participate in the CVV2 program or\nhasn't provided the key so that the code can be validated.\n\nWhy was my credit card transaction declined?\nHow to Review Transaction Details",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "5dcd2bf2-6e9c-4123-99d0-6cd264465513",
+      "parent_index": 10,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "5005bc5e-12a5-4a14-8a14-3d0793bfb570": {
+    "content": "Log into the Merchant Interface.\nClick Transaction Search from the main toolbar.\nEnter the relevant search criteria to find the transaction.\nClick Search at the bottom of the page.\nClick the appropriate Transaction ID to review the transaction details.\n\nOn the Transaction Detail page, the transaction status Declined is displayed directly under the Transaction ID. A brief reason for the\ndecline may be provided in parenthesis.\nCommon Decline Messages and Information\nHere are some common decline messages and information about the decline types:\nDeclined (Card declined by issuer - contact card issuer to determine reason.)\nThe customer's credit card issuing bank did not approve the transaction. This could be due to insufficient funds, frozen account status,\ninvalid credit card number or expiration date, etc. The customer will need to contact the card issuing bank for more information. One\nway to recognize a bank decline is to look at the transaction's Address Verification Service (AVS) status in the Authorization Information",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "5005bc5e-12a5-4a14-8a14-3d0793bfb570",
+      "parent_index": 11,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "83eaca1b-bd94-442e-96d9-7ad1d0f2e1b4": {
+    "content": "Why was my credit card transaction declined?\nHow to Review Transaction Details\nLog into the Merchant Interface.\nClick Transaction Search from the main toolbar.\nEnter the relevant search criteria to find the transaction.\nClick Search at the bottom of the page.\nClick the appropriate Transaction ID to review the transaction details.\nOn the Transaction Detail page, the transaction status Declined is displayed directly under the Transaction ID. A brief reason for the\ndecline may be provided in parenthesis.\nCommon Decline Messages and Information\nHere are some common decline messages and information about the decline types:\nDeclined (Card declined by issuer - contact card issuer to determine reason.)\nThe customer's credit card issuing bank did not approve the transaction. This could be due to insufficient funds, frozen account status,\ninvalid credit card number or expiration date, etc. The customer will need to contact the card issuing bank for more information. One\nway to recognize a bank decline is to look at the transaction's Address Verification Service (AVS) status in the Authorization Information\n\nsection of the Transaction Detail page. If it shows AVS Not Applicable (P), this generally means that no verification of the address\ninformation was initiated as the transaction was declined beforehand.\nDeclined (Contact card issuer to complete transaction.)",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "83eaca1b-bd94-442e-96d9-7ad1d0f2e1b4",
+      "parent_index": 12,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "8d544ae6-211b-438c-9378-9b19d701468c": {
+    "content": "Declined (Card reported lost or stolen - contact card issuer for resolution.)\nThe transaction status means that the credit card has been reported as lost or stolen. The credit card company is informing you, as the\nmerchant, that this card should be taken from the customer and destroyed. We understand this is impossible if the transaction was made\nvia the Internet. In any case, you may contact the customer to inform them of the card's status, and seek another method of payment.\nDeclined (AVS Mismatch) or (Card Code Mismatch)\nThis means the transaction was declined due to the Address Verification Service (AVS) or Card Code Verification (CCV) results. AVS\ncompares the billing address (numerical portions) provided in a transaction with the cardholder's address on file at the credit card issuing\nbank. CCV compares the card code (a three- or four-digit security code that is printed on the credit card) provided in a transaction with\nthe card code on file at the credit card issuing bank. When enabled, both services return a code to the payment gateway indicating the\nverification results. You can configure settings for AVS and CCV in the Merchant Interface to decline transactions based on those codes.\nDeclined (The transaction was declined as a result of triggering a Fraud Detection Suite filter.)\nIf the account has Fraud Detection Suite (FDS) or Advanced Fraud Detection Suite (AFDS) enabled, you can configure the payment\ngateway to decline transactions that trigger specific FDS filters.\nDeclined Reason Codes\nAuthorize.net may not provide specific reasons for a particular decline, but here are some common decline reasons along with their\nassociated Response Reason Codes:",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "8d544ae6-211b-438c-9378-9b19d701468c",
+      "parent_index": 13,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "e43ba17d-f986-4918-bbb6-25fcce822220": {
+    "content": "\n\nsection of the Transaction Detail page. If it shows AVS Not Applicable (P), this generally means that no verification of the address\ninformation was initiated as the transaction was declined beforehand.\nDeclined (Contact card issuer to complete transaction.)\nA referral to a voice authorization center was received. Please call the appropriate voice authorization number below for the card type\nbeing used:\nAmerican Express: (800) 528-2121\nVisa/MasterCard: (800) 228-1122\nDiscover/Novus: (800) 347-1111\nDiners Club: (800) 525-9040\nJCB: (800) 522-9345\nDeclined (Card reported lost or stolen - contact card issuer for resolution.)\nThe transaction status means that the credit card has been reported as lost or stolen. The credit card company is informing you, as the\nmerchant, that this card should be taken from the customer and destroyed. We understand this is impossible if the transaction was made\nvia the Internet. In any case, you may contact the customer to inform them of the card's status, and seek another method of payment.\nDeclined (AVS Mismatch) or (Card Code Mismatch)\nThis means the transaction was declined due to the Address Verification Service (AVS) or Card Code Verification (CCV) results. AVS\ncompares the billing address (numerical portions) provided in a transaction with the cardholder's address on file at the credit card issuing\nbank. CCV compares the card code (a three- or four-digit security code that is printed on the credit card) provided in a transaction with\nthe card code on file at the credit card issuing bank. When enabled, both services return a code to the payment gateway indicating the\nverification results. You can configure settings for AVS and CCV in the Merchant Interface to decline transactions based on those codes.\nDeclined (The transaction was declined as a result of triggering a Fraud Detection Suite filter.)\nIf the account has Fraud Detection Suite (FDS) or Advanced Fraud Detection Suite (AFDS) enabled, you can configure the payment\ngateway to decline transactions that trigger specific FDS filters.\nDeclined Reason Codes\nAuthorize.net may not provide specific reasons for a particular decline, but here are some common decline reasons along with their\nassociated Response Reason Codes:\n2: General decline by card issuing bank or by Merchant Service Provider\n3: Referral to card issuing bank for verbal approval\n4: Card reported lost or stolen; pick up card if physically available\n27: Address Verification Service (AVS) mismatch; declined by account settings\n44: Card Code decline by payment processor\n45: AVS and Card Code mismatch; declined by account settings\n65: Card Code mismatch; declined by account settings\n250: Fraud Detection Suite (FDS) blocked IP address\n251: FDS filter triggered--filter set to decline\n254: FDS held for review; transaction declined after manual review",
+    "metadata": {
+      "source": "documents\\ONBOARDING\\PAYMENT PROCESSOR TUTORIALS\\auth-net-kb.pdf",
+      "source_filename": "auth-net-kb.pdf",
+      "document_title": "Auth Net Kb",
+      "category": "ONBOARDING > PAYMENT PROCESSOR TUTORIALS",
+      "chunk_strategy": "parent_child",
+      "parent_id": "e43ba17d-f986-4918-bbb6-25fcce822220",
+      "parent_index": 14,
+      "total_parents": 15,
+      "is_parent": true
+    }
+  },
+  "b9b24ccb-2791-4780-95a6-22839ca82f8b": {
+    "content": "Document: Create App Banners And Events | Category: SETUP > Marketing Guides\n\nBOTTLECAPPS\nCreate App Banners and Events\n1. Navigate to https://www.liquorapps.com\n2. Click \"App Banners\"\n3. Click “Add Promotion”\n4. If you have more than 1 location, please select the store you would like to apply this banner or event to:\n\n[Screenshot Description]: The screenshot displays the Bottlecapps admin tutorial for creating app banners and events. \n\n1. **Admin Screen/Section Displayed**: The \"Promotions\" section within the \"App Banners\" admin interface.\n   \n2. **Visible Buttons, Fields, Menus, or Settings**: \n   - A sidebar menu with options including \"Home,\" \"App Banners,\" \"Website Banners,\" \"Prices & Inventories,\" \"Your Staff Picks,\" \"Home Page Sections,\" \"Product Collections,\" \"Add Impulse Buys here,\" \"Orders,\" and \"Users.\"\n   - A button labeled \"Add Promotion\" at the top of the promotions section.\n\n3. **Highlighted Elements**: The \"Add Promotion\" button is clearly emphasized.\n\n4. **User Action Instruction**: The user is instructed to click the \"Add Promotion\" button to create a new promotion. Additionally, if the user has more than one location, they are prompted to select the store to which the banner or event should be applied.\n\n5. Click \"SELECT ALL\" if you'd like it to go to all stores\n6. Click the location you would like this event to be applied to\n7. Select the type of banner you would like to create:\n1. Event - this will be posted on your app as well as on the event CALENDAR on your website. This is good for tastings or\nsponsored events.\n2. Product - This is for App banner that link to a product list\n3. Recipe - this will link to a current recipe on your app\n4. Brand - this banner ad will link to a specific Brand in your inventory such as \"Titos\", Jameson, or Truly.",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\create-app-banners-and-events.pdf",
+      "source_filename": "create-app-banners-and-events.pdf",
+      "document_title": "Create App Banners And Events",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "b9b24ccb-2791-4780-95a6-22839ca82f8b",
+      "parent_index": 0,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "b3eb633c-002b-4310-812c-66b34f1935e8": {
+    "content": "[Screenshot Description]: The screenshot displays the admin section for creating app banners and events in the Bottlecapps platform.\n\n1. **Admin Screen/Section**: The section is titled \"Select Promotion Type\" for adding promotions to the app.\n\n2. **Visible Elements**:\n   - **Buttons**: \"SELECT ALL\"\n   - **Fields**: Options for selecting promotion type (Event, Product, Recipe, URL)\n   - **Menus**: List of stores (including \"Bottlecap's Irving\" and others)\n   - **Settings**: Checkboxes for store selection\n\n3. **Highlighted Elements**:\n   - The “SELECT ALL” button is highlighted.\n   - The \"Brand\" option is indicated with a circle.\n\n4. **User Instruction**: The user is instructed to select a store location for the event and choose the type of banner to create, with options including Event, Product, Recipe, and Brand.\n\n8. Create an Event by clicking the \"Event\" Promotion Type\n9. Click \"NEXT\" once selected\n10. Title the Event By clicking the field and entering a title\n11. Type your desired title in the field",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\create-app-banners-and-events.pdf",
+      "source_filename": "create-app-banners-and-events.pdf",
+      "document_title": "Create App Banners And Events",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "b3eb633c-002b-4310-812c-66b34f1935e8",
+      "parent_index": 1,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "7d74987a-1096-41b8-bb46-55ad8fa2b92c": {
+    "content": "[Screenshot Description]: The screenshot from the Bottlecapps admin tutorial shows the following:\n\n1) **Admin Screen/Section**: The \"Add Promotion\" section under \"Promotions\".\n\n2) **Buttons, Fields, Menus, or Settings**: The screen includes buttons for selecting promotion types (Event, Product, Recipe, URL), a \"NEXT\" button for proceeding, and a text field labeled \"Event Name/Title\" for entering details about the event.\n\n3) **Highlighted Elements**: The \"Event\" promotion type is highlighted. An arrow points to the text field where the user is instructed to enter a title.\n\n4) **User Action**: The user is being instructed to select the \"Event\" promotion type and then click \"NEXT\" before entering a title for the event in the designated field.\n\n12. Add an image by clicking \"Click Here to Upload/Change Image\"\n13. IF you would like to use a stock image on file Click \"Choose from Library\"\n14. Select a stock image\n15. IF the event is free Check the event is free box\nIF the event is at the physical store check the box marked \"event address same as store\"\nIF not add the address below",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\create-app-banners-and-events.pdf",
+      "source_filename": "create-app-banners-and-events.pdf",
+      "document_title": "Create App Banners And Events",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "7d74987a-1096-41b8-bb46-55ad8fa2b92c",
+      "parent_index": 2,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "74514639-8f4f-4204-a283-4051a4b38878": {
+    "content": "[Screenshot Description]: The screenshot displays instructions for the \"Create App Banners And Events\" section of the Bottlecapps admin interface.\n\n1. **Admin Screen/Section**: The \"Create App Banners and Events\" admin screen.\n\n2. **Buttons, Fields, Menus, or Settings**:\n   - Input fields for \"Event Name/Title\" and \"Event Price.\"\n   - A checkbox for \"Event is Free.\"\n   - An option labeled \"Click Here to Upload/Change Image.\"\n   - A button labeled \"Choose from Library.\"\n\n3. **Highlighted Elements**:\n   - The \"Click Here to Upload/Change Image\" button is circled.\n   - The \"Choose from Library\" button is also highlighted.\n\n4. **Action Instructed**: The user is instructed to add an image by clicking on \"Click Here to Upload/Change Image\" or to select a stock image by clicking on \"Choose from Library.\" Additionally, there are steps for indicating whether the event is free and whether the event address is the same as the store address.\n\n16. Type in an event description and Click \"NEXT\"\n17. Select event start dates and times for the actual dates and times for the events\nSelect Display Start dates/times and End dates/Times for the duration of that you want this event to be displayed on your\nwebsite.\n18. If you would like to send a push notification with the Event or Banner, check the Send Notification box.\nAdd a title and message",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\create-app-banners-and-events.pdf",
+      "source_filename": "create-app-banners-and-events.pdf",
+      "document_title": "Create App Banners And Events",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "74514639-8f4f-4204-a283-4051a4b38878",
+      "parent_index": 3,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "48b4d5a7-1b89-4bc3-86c5-bbe44748021f": {
+    "content": "[Screenshot Description]: ### Description of Page 5 - Bottlecapps Admin Tutorial: Create App Banners and Events\n\n1. **Admin Screen/Section:** The displayed screen is the event creation interface within the Bottlecapps admin dashboard.\n\n2. **Visible Buttons, Fields, Menus, Settings:** \n   - **Buttons:** \"NEXT\", \"PREVIOUS\", and \"PUBLISH\".\n   - **Fields:** Event type selection (e.g., Free), event address (including Address 1, Address 2, City, State, Zip Code), Event Description, Start Date, End Date, and specific times.\n   - **Menus:** Select stores for event promotion.\n\n3. **Highlighted Elements:** \n   - Arrows point to the \"Event is Free\" toggle switch and the \"Send Notification\" checkbox in the \"Publish\" section.\n   - Text fields for input are also indicated.\n\n4. **User Action Instruction:** The user is instructed to enter an event description and click “NEXT,” select event dates and times, and, if desired, check the \"Send Notification\" box to include a push notification with the event or banner.\n\nCheck the correct box to send now or send later\n19. Click \"PUBLISH\" When you are ready to publish the event or app banner.\n20. Click URL, Product, Brand or Recipe to add a Product Banner\n21. Click Product\n\n22. Click \"NEXT\"\n23. Click the \"Product Name/Title\" field.\n24. Type Desired Banner name\n25. Upload your own image or select one from our library\n26. Select a product category\n\n27. Click the \"Start typing product name to search\" field and type in the desired product you would like to display.\n28. Click \"Search\"\n29. Click the plus buttons to add the desired products to the banner ad.\n30. Click here.\n\n32. Click here.\n33. Click \"NEXT\"\n34. Select dates and tiems yu want the promotion to run for\n\n35. Click \"PUBLISH\"\n36. Click \"Promotion saved successfully\"\n37. To add or edit an app banner/promotion click the edit button\n\n38. When you click edit it will take you to the edit screen\n39. Click here to delete an event or promotion.",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\create-app-banners-and-events.pdf",
+      "source_filename": "create-app-banners-and-events.pdf",
+      "document_title": "Create App Banners And Events",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "48b4d5a7-1b89-4bc3-86c5-bbe44748021f",
+      "parent_index": 4,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "6ccabfe6-85a2-4ce7-abab-1a257c50d258": {
+    "content": "Document: Https Bottlecapps Zohodesk Com Portal En Kb Giftcards | Category: SETUP > Marketing Guides\n\nBOTTLECAPPS\nGift Cards Tutorial\nGift Cards Guide\nOne of the best ways to add value to your platform is by way of GIFT CARDS. This is a great revenue-generating\ntool. Once you set up a Gift Card in your Webconsole (liquorapps.com), customers will see “Gift Cards” on your\napp (drop down menu) and website (tab on the top).\nNOTE – app/website will need to be updated to the latest version.\nThis simple guide will show you how to set them up in your Webconsole.\nFirst, you will notice the new tab call “Gift Cards” on your left-hand menu. Click here:\n\n[Screenshot Description]: The screenshot shows page 1 of a Bottlecapps admin tutorial regarding Gift Cards.\n\n1. **Admin Screen or Section:** The screen displayed is the \"Gift Cards\" section within the Bottlecapps Webconsole.\n\n2. **Buttons, Fields, Menus, or Settings:** Visible elements include a left-hand menu where the \"Gift Cards\" tab is located. \n\n3. **Highlighted Elements:** There is an indication to \"click here\" next to the \"Gift Cards\" tab.\n\n4. **User Action Instruction:** The user is instructed to click on the \"Gift Cards\" tab in the left-hand menu of the admin console to proceed with setting up Gift Cards.\n\nThen click here:\nThen, enter the information in these boxes and select which stores this will apply to (if applicable):",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "source_filename": "https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "document_title": "Https Bottlecapps Zohodesk Com Portal En Kb Giftcards",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "6ccabfe6-85a2-4ce7-abab-1a257c50d258",
+      "parent_index": 0,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "7b97e10b-134f-4ec0-871c-89e6cd668a6b": {
+    "content": "[Screenshot Description]: The screenshot displays the following:\n\n1) **Admin Screen or Section:** The \"Gift Cards\" section of the Bottlecapps admin interface.\n\n2) **Visible Elements:** \n   - A navigation menu listing various sections (e.g. Home Page Sections, Product Collections, Orders, etc.).\n   - A highlighted \"Gift cards\" item in the menu indicating it is newly added.\n   - A main area with the title \"Gift Card,\" displaying a button labeled \"+ Add Gift Card.\"\n\n3) **Highlighted Elements:** \n   - The \"Gift cards\" menu item is highlighted with a green box indicating it is newly available.\n   - The \"+ Add Gift Card\" button is highlighted with a green circle, drawing attention to the action to be taken.\n\n4) **User Action Instruction:** The user is instructed to click the \"+ Add Gift Card\" button to enter information regarding the gift card and select applicable stores.\n\nNOTE 1 – For the “Weekly Max Gift Amount,” sometimes Gift Cards can be used by fraudsters, so this is just an\nadditional layer of protection for the store.\nNOTE 2 - If/when Gift Cards expire with money left on them, that money goes to the store even if the money was\nnot spent.\nOnce a Gift Card is set up, it will then show up for customers to see:\nOnce customers click there, they will see this screen where they can choose their gift amount/details/recipient:\nWhatever has been set up here will display in the email of the recipient.\nAfter the customer has completed payment and added the gift details, they will see this message (as well as\nreceiving an email):",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "source_filename": "https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "document_title": "Https Bottlecapps Zohodesk Com Portal En Kb Giftcards",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "7b97e10b-134f-4ec0-871c-89e6cd668a6b",
+      "parent_index": 1,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "4cefe8f0-c3df-4994-8422-8484aa2e071b": {
+    "content": "[Screenshot Description]: ### Bottlecapps Admin Tutorial: Gift Card Setup\n\n1) **Admin Screen Section Displayed**: The page shows the \"Add Gift Card\" admin screen.\n\n2) **Visible Buttons, Fields, Menus, or Settings**:\n   - **Fields**: \n     - \"Enter Gift Card Name\"\n     - \"Expiry Duration (Days)\"\n     - \"Min Amount(s)\" and \"Max Amount(s)\" fields\n     - \"Weekly Max Gift Amount(s)\"\n   - **Buttons/Options**: Options to select stores for the gift cards.\n\n3) **Highlighted Elements**: \n   - There are notes indicating important information regarding the usage and expiration of gift cards. \n   - No specific buttons, fields, or sections are highlighted or circled in this upload.\n\n4) **User Instruction**: The user is instructed to fill out the necessary fields to create a gift card, specifying name, expiry duration, and amount limits, before setting it up for customer access.\n\nThis section provides guidance on how to create and manage gift cards within the Bottlecapps admin system.\n\nThe person receiving the gift will see this email with a Gift Card Code:",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "source_filename": "https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "document_title": "Https Bottlecapps Zohodesk Com Portal En Kb Giftcards",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "4cefe8f0-c3df-4994-8422-8484aa2e071b",
+      "parent_index": 2,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "b1b9f027-cd75-4d21-9255-9efc347de123": {
+    "content": "[Screenshot Description]: The screenshot displays information related to the gift card feature in the Bottlecapps admin portal.\n\n1) The admin screen shown appears to be a confirmation page after an order has been placed for a gift card.\n2) Visible elements include a message confirming the order, the sender's information (name, address, and contact number), and an example of the email that the recipient will receive.\n3) The elements highlighted include the \"Thank you for your order!\" message, the sender information, and the visual representation of the gift card with its details (gift card amount and code).\n4) The user is being instructed to understand how the gift card confirmation process works and what the recipient will see in their email, including the gift card code.\n\nAt the bottom of the email is a button to SHOP that will take the customer to the website. After selecting their\nproducts, they will enter their Gift Card Code here to redeem:\nThere is also a button in the email as well as below the Gift Card Code box that allows customers to check their\nbalance.\nAfter the order is complete, this is how it will display to the store in their ORDERS tab of the Webconsole:\nLastly, in the Gift Cards tab of the Webconsole, you can see the total outstanding balance of Gift Cards that have\nbeen purchased.",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "source_filename": "https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "document_title": "Https Bottlecapps Zohodesk Com Portal En Kb Giftcards",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "b1b9f027-cd75-4d21-9255-9efc347de123",
+      "parent_index": 3,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "ff4b8565-523d-4ed0-b1d3-2696e964edeb": {
+    "content": "[Screenshot Description]: ### Description for Knowledge Base\n\n1. **Admin Screen or Section Displayed:** The screenshot displays the checkout process on the Bottlecapps admin screen where customers can enter a Gift Card Code for redemption.\n\n2. **Visible Buttons, Fields, Menus, or Settings:**\n   - **Fields:** \n     - Pick-up date\n     - Special instructions\n     - Item totals (including savings, club price, and various fees)\n   - **Buttons:** \n     - \"Continue to Payment\"\n     - \"Redeem Gift Card Code\"\n     - \"Check Balance\"\n\n3. **Elements Highlighted, Circled, or Pointed to:**\n   - An arrow pointing to the \"Redeem Gift Card Code\" button, indicating where customers can enter their gift card code.\n\n4. **User Action Instruction:** The user is instructed to enter their Gift Card Code in the designated field to redeem it during the checkout process.",
+    "metadata": {
+      "source": "documents\\SETUP\\Marketing Guides\\https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "source_filename": "https-bottlecapps-zohodesk-com-portal-en-kb-giftcards.pdf",
+      "document_title": "Https Bottlecapps Zohodesk Com Portal En Kb Giftcards",
+      "category": "SETUP > Marketing Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "ff4b8565-523d-4ed0-b1d3-2696e964edeb",
+      "parent_index": 4,
+      "total_parents": 5,
+      "is_parent": true
+    }
+  },
+  "f318810d-20a4-4d2f-bda9-a7928848eedd": {
+    "content": "Document: How To Modify An Order Rough Draft | Category: SETUP > Order Management Guides\n\nBOTTLECAPPS\nHow to Modify an Order\n1. Go To liquorapps.com and login\n2. Click \"Orders\" on the menu on the left-hand side\n3. Click on the Pending Order you want to modify\n4. Click \"Modify Order\"\n\n[Screenshot Description]: The screenshot displays the following elements related to the Bottlecapps admin tutorial:\n\n1) **Admin Screen Section**: The screenshot shows the \"Orders\" section of the Bottlecapps admin interface.\n\n2) **Visible Buttons, Fields, Menus, or Settings**: \n   - A side menu on the left with options including \"Prices & Inventories,\" \"Your Staff Picks,\" \"Product Collections,\" and \"Orders.\"\n   - The main content area includes fields for searching orders (with headings like \"Order No,\" \"Name,\" \"Payment Type,\" etc.) and various rows of orders with details such as order status and values.\n   - Sorting options and pagination controls are present at the top.\n\n3) **Highlighted Elements**: The \"Pending Order\" that the user is instructed to click on is referenced, suggesting it may be highlighted, but specific highlights, circles, or arrows are not visible in the text description.\n\n4) **User Action Instruction**: The user is instructed to click on the pending order they want to modify and then click the \"Modify Order\" button to proceed with modifications to the order.\n\n5. To add a product to an order, Click the \"Add Product\" field and type the item you want to add to the order\n6. Click \"Search\"\n7. Once you have found the correct item, click the plus button\n8. To remove an item from the order, click the \"X\" next to the item you wish to remove.",
+    "metadata": {
+      "source": "documents\\SETUP\\Order Management Guides\\how-to-modify-an-order-rough-draft.pdf",
+      "source_filename": "how-to-modify-an-order-rough-draft.pdf",
+      "document_title": "How To Modify An Order Rough Draft",
+      "category": "SETUP > Order Management Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "f318810d-20a4-4d2f-bda9-a7928848eedd",
+      "parent_index": 0,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "11509099-d2fc-41f5-bd67-56d3100be443": {
+    "content": "[Screenshot Description]: ### Description of Screenshot\n\n1. **Admin Screen/Section Displayed**: The screenshot shows the \"Orders\" section of the Bottlecapps admin interface, specifically focusing on modifying an existing order.\n\n2. **Visible Elements**: \n   - **Buttons**: \"Add Product,\" \"Search,\" and \"Save & Credit.\"\n   - **Fields**: A field labeled \"Add Product\" where users can type the item they want to add to the order.\n   - **Settings/Sections**: A summary section showing order details, including SKU, UPC, Quantity, Size, Price, and estimated amounts.\n\n3. **Highlighted Elements**: \n   - The \"Search\" button is circled, indicating it should be clicked after typing in the product name.\n   - The plus button next to the product listing to add the item to the order.\n\n4. **User Action Instructions**: The user is instructed to type the item they want to add into the \"Add Product\" field, click the \"Search\" button, and then click the plus button next to the found item to add it to the order. Additionally, to remove an item, the user should click the \"X\" next to the item they wish to remove.\n\n9. To add an after-purchase discount, add the desired discount in the \"special discount\" field\n10. Once you have modified an order, click \"Save\" if you will need to modify it again.",
+    "metadata": {
+      "source": "documents\\SETUP\\Order Management Guides\\how-to-modify-an-order-rough-draft.pdf",
+      "source_filename": "how-to-modify-an-order-rough-draft.pdf",
+      "document_title": "How To Modify An Order Rough Draft",
+      "category": "SETUP > Order Management Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "11509099-d2fc-41f5-bd67-56d3100be443",
+      "parent_index": 1,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "e242440e-5df9-4697-935d-394c3d1089ce": {
+    "content": "[Screenshot Description]: The screenshot displays the admin section for modifying an order in the Bottlecapps system.\n\n1) **Admin Screen/Section**: The order modification screen within the Bottlecapps admin interface.\n\n2) **Visible Elements**: \n   - Fields for UPC, Quantity, Size, Price(s), and Extended Amount(s).\n   - A \"Special Discount\" field is present.\n   - Buttons for adding products and saving changes are visible.\n\n3) **Highlighted Elements**: \n   - The \"Special Discount\" field is circled with an arrow pointing to it.\n   - The total amount is indicated below the discount field.\n\n4) **User Action Instruction**: The user is instructed to add a desired discount in the \"special discount\" field and to click \"Save\" if they need to modify the order again after making changes.\n\n11. Click the \"Save and Confirm\" button once you are done modifying the order. Please note, once this button is pressed, you\ncan no longer make any more changes to the order\n12. Click \"W1361325\"\n\n[Screenshot Description]: The screenshot displays the admin interface for modifying an order in Bottlecapps. \n\n1) **Admin Screen Section**: The screen is part of the order modification section within the Bottlecapps admin portal.\n\n2) **Visible Elements**:\n   - There are fields for SKU, UPC, Quantity, Size, Price, and Extended Amount.\n   - Buttons labeled \"Save,\" \"Save & Confirm,\" and \"Back\" are present.\n   - A search field for product name along with a \"Search\" button.\n\n3) **Highlighted Elements**: The \"Save & Confirm\" button is highlighted, indicating where the user should focus.\n\n4) **User Action Instruction**: The user is instructed to click the \"Save and Confirm\" button after completing modifications to the order, noting that no further changes can be made after this action.\n\n13. Click this button field.\n14. Click this button field.",
+    "metadata": {
+      "source": "documents\\SETUP\\Order Management Guides\\how-to-modify-an-order-rough-draft.pdf",
+      "source_filename": "how-to-modify-an-order-rough-draft.pdf",
+      "document_title": "How To Modify An Order Rough Draft",
+      "category": "SETUP > Order Management Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "e242440e-5df9-4697-935d-394c3d1089ce",
+      "parent_index": 2,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "7b165619-670d-4409-8ef9-b41f2c8c7445": {
+    "content": "[Screenshot Description]: The screenshot displays the admin section of the BottleCapps platform focused on order management.\n\n1) The screen is from the \"Orders\" section within the BottleCapps admin interface.\n\n2) Visible elements include:\n   - A list of orders with columns for Order No., First Name, Last Name, and Date.\n   - A dropdown menu for selecting order types (including Open Orders, Pickup Orders, Delivery Orders, etc.).\n   - Buttons for actions like \"Update Status to Ready for Pick up,\" \"Get Uber Order Status,\" and \"Cancel Order.\"\n\n3) Elements highlighted include:\n   - The button field labeled \"Update Status to Ready for Pick up\" which is circled or pointed to for emphasis.\n   - The instruction to click this button field is clearly indicated.\n\n4) The user is being instructed to click the \"Update Status to Ready for Pick up\" button to modify the status of the selected order.\n\n15. Click \"Print Order\"\n16. Click \"Orders\" to see the Order",
+    "metadata": {
+      "source": "documents\\SETUP\\Order Management Guides\\how-to-modify-an-order-rough-draft.pdf",
+      "source_filename": "how-to-modify-an-order-rough-draft.pdf",
+      "document_title": "How To Modify An Order Rough Draft",
+      "category": "SETUP > Order Management Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "7b165619-670d-4409-8ef9-b41f2c8c7445",
+      "parent_index": 3,
+      "total_parents": 4,
+      "is_parent": true
+    }
+  },
+  "33b0ad02-1611-4df2-891a-200652b9eaad": {
+    "content": "Document: Prices Inventories How To Update Products | Category: SETUP > Setup Guides\n\nBOTTLECAPPS\nPrices & Inventories – How to Update Products\nThis guide will show you how to use the Prices & Inventories tool to it’s full power. Search,\nedit, hide, highlight or restrict products using the guides below.\nBasic Updates to Items\nFind a product that you need to edit Stock, Price or Bottle Limit for. Select Quick Edit to open this menu. When you’ve\ncompleted the changes, click Update to save your edits.\nAdditional Updates to Items\nTo modify every other detail about an item, click on Edit beneath the product. This will open up a full table of elements\nthat you can update. You can update the Product Name, Description, Images, Price (including sale prices and dates),\nCategory & Subcategory, and Unit Size.",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "33b0ad02-1611-4df2-891a-200652b9eaad",
+      "parent_index": 0,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  },
+  "1d3b0871-c341-48cc-98a9-4df312597529": {
+    "content": "[Screenshot Description]: ### Description of the Screenshot\n\n1. **Admin Screen or Section Displayed**: The screenshot shows the \"Prices & Inventories\" section of the Bottlecapps admin interface.\n\n2. **Visible Buttons, Fields, Menus, or Settings**: \n   - A search bar to find products.\n   - An \"Add Products\" button.\n   - A \"Sort By\" dropdown menu.\n   - Columns displaying \"Product Image,\" \"Product Name,\" \"Size,\" \"Quantity,\" \"Price(s),\" \"Bottle Limit,\" \"Category Type,\" \"Allocated,\" \"Discountable,\" \"In Store Only,\" and \"Include Marketplace.\"\n   - Edit and Quick Edit buttons for each product.\n   - An \"Update\" button.\n\n3. **Highlighted Elements**: \n   - The \"Quick Edit\" option is indicated for selecting the product to modify.\n   - The \"Update\" button is highlighted in a green box, indicating where to click after making changes.\n\n4. **User Action Instruction**: The user is instructed to select the \"Quick Edit\" option for a product, make the necessary updates to stock, price, or bottle limit, and then click the \"Update\" button to save the changes.\n\nNote:\nYou\nwill\nsee a\nsection called Custom Size in addition to Unit Size. Custom Size will mirror Unit Size until it is changed. If you choose\nto change Custom Size field from it’s default [750ml (Standard)] to [BUNDLE 2 x 750ml], then your new entry will\ndisplay on your app/website.\nYou may also want to update the image for any given product, especially if it is a more local item / custom product such\nas a bundle or gift box. To update the image, you’ll need to upload the file in two places.",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "1d3b0871-c341-48cc-98a9-4df312597529",
+      "parent_index": 1,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  },
+  "b6e5a594-d5d6-4ace-a3ad-5cd52e4a1fce": {
+    "content": "[Screenshot Description]: The screenshot displays the admin interface of Bottlecapps in the \"Prices & Inventories\" section, specifically for updating product details.\n\n1. **Admin Screen/Section**: The \"Prices & Inventories\" section for updating products.\n  \n2. **Visible Elements**:\n   - Fields: SKU, UPC, Product Name, Product Description, Price, Tax, Category, Variants, Unit Size, Custom Size, Cost, Sale Price, Deposit, Sale Start Date, Sale End Date, Club Price, Country, Region, Vintage, Flavor.\n   - Buttons: Update, Reset, Delete, Cancel.\n   - Image upload areas labeled \"Product Small Image,\" \"Product Big Image,\" and \"Upload Image for Bottlevision (PNG).\"\n\n3. **Highlighted Elements**: \n   - The section for \"Custom Size\" is indicated, specifying that it mirrors \"Unit Size.\"\n   - Arrows point to the \"Upload Image\" buttons for both small and big product images.\n\n4. **User Action Instruction**: The user is instructed to update the \"Custom Size\" field as needed and to upload product images in two defined areas.\n\nFirst, in the Product Small Image area (this corresponds with the image on your website when viewed alongside other\nitems).\nExample:\nThe next place will be the Product Big Image, which corresponds to the image on your website when viewing this\nproduct specifically; i.e - when you can view all the product descriptions and tasting notes, pairings, etc.\nExample:",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "b6e5a594-d5d6-4ace-a3ad-5cd52e4a1fce",
+      "parent_index": 2,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  },
+  "8b3791ad-d277-4397-a47b-93c625f4e205": {
+    "content": "[Screenshot Description]: The screenshot displays the admin section for updating product information on Bottlecapps. \n\n1) **Admin Screen Section**: The section shown is the product listings area where products are displayed with images and pricing.\n\n2) **Visible Elements**: The screen includes a list of products with thumbnail images, product names, sizes, prices, and a shopping cart icon. There are also filter options on the left side of the screen.\n\n3) **Highlighted Elements**: The product \"Austin Cocktails Cucumber Vodka Mojito\" is highlighted in a red box, drawing attention to its details.\n\n4) **User Action Instruction**: The user is being instructed to focus on the \"Product Small Image\" area corresponding to how products will appear on their website, suggesting they take note of how these images look alongside other items.\n\nRelated Items\nWhen you want to add related items to a particular product (for example you want to add COKE as a related product\nwhen JAMESON is clicked on your website), you’ll click on the Related Items button to pull up a table where you will\nsearch for the desired item.\nYou’ll enter your search (“Coke”) and tick the plus sign (+) next to all applicable items. There will be a section at the\nbottom showing you all the Selected Products. You are able to remove any of these by click the trash bin on the right\nside.\nOnce you’ve added all your related items, click SAVE.",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "8b3791ad-d277-4397-a47b-93c625f4e205",
+      "parent_index": 3,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  },
+  "49de8936-e87c-44b6-8e53-337e75d52ca0": {
+    "content": "[Screenshot Description]: The screenshot displays the admin section for updating product details in the Bottlecapps platform, specifically focusing on adding related items to a product.\n\n1. **Admin Screen/Section**: The screen is for updating product information, particularly the \"Related Items\" feature.\n\n2. **Visible Elements**:\n   - Product title and description for \"Austin Cocktails Cucumber Vodka Mojito\"\n   - Price and quantity options\n   - Product details including type, brand, and SKU\n   - A \"Related Items\" button\n   - A table listing available related items with columns for product information, quantity, price, and actions\n\n3. **Highlighted Elements**:\n   - The \"Related Items\" button is pointed out.\n   - The plus sign (+) next to applicable items for selection is also highlighted.\n   - The \"Add Related Items\" button is noted in the context of the table.\n\n4. **Instructed Action**: The user is being instructed to click on the \"Related Items\" button, search for desired items, and add them using the plus sign (+) next to each applicable item before clicking \"SAVE\" to finalize the addition of related items.\n\nReport\nWhen you notice an item having a wrong image, a category is pulling the wrong pricing from your POS, or any other\ndiscrepancy – you can use the REMARKS box to let us know what the issue with the item is and we can resolve it for\nyou.\nWe know not every retailer has the bandwidth to update images and details for products in-bulk, so we will do our best\nto assist while you handle other things to make your App and Website AMAZING.\nFilters and Sorting\nWe know you may carry several thousand products, so we’ve made it simpler to narrow down your search to update\nyour items.",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "49de8936-e87c-44b6-8e53-337e75d52ca0",
+      "parent_index": 4,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  },
+  "c6257746-ef83-4cf7-9af1-ee9e4b236ad3": {
+    "content": "[Screenshot Description]: The screenshot displays the \"Add Related Products\" admin section of the Bottlecapps platform. \n\n1) **Admin Screen/Section**: The \"Add Related Products\" modal and the \"Report\" modal.\n\n2) **Visible Elements**:\n   - **Buttons**: \"Search,\" \"Close,\" and \"Save.\"\n   - **Fields**: A search box for finding products and a text area labeled \"Remarks\" for reporting issues.\n   - **Settings**: A list of related products displayed with their names, sizes, and prices.\n\n3) **Highlighted Elements**:\n   - Products selected for addition are highlighted in yellow.\n   - An arrow points to the \"Send Mail\" button in the \"Report\" modal.\n\n4) **User Instruction**: The user is instructed to select related products and use the \"Remarks\" box to report any discrepancies regarding product images, categories, or pricing issues. After making selections, the user should either save the addition of related products or send the report.\n\nSimply select the dropdown for each filter you’d like to use and select your fields to narrow your search. Filter by\nLiquor > Bourbon and Sort: High to Low and you’ve got a list of your Top Shelf Bourbons.\nFuthermore, you can sift through the items with a fine tooth comb by selecting even more Product Filters. These will\nhelp you locate items that meet particular criteria on top of your general search queries.\nLastly, you can download your filtered search results using the red Download This View button at the top right.\nProduct Checkboxes & Uses\nThere are currently 4 different checkboxes that serve specific functions to your products. When you click one, there will\nbe a prompt signaling “Your product has been updated successfully”. When you close the prompt, you can update\nanother box.",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "c6257746-ef83-4cf7-9af1-ee9e4b236ad3",
+      "parent_index": 5,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  },
+  "591b2fd7-33cf-4888-b328-ccc4ea79bd77": {
+    "content": "The first box is the Allocated Checkbox.\nWhen an item has the checkbox marked, the product will be removed from visibility on the app and website and restrict\nthe customer from ordering it online.\nUse this if:\nYou don’t want customers to see certain items on your digital shelf.\nYou need to remove the item quickly so it can be updated.\nThere are duplicate items and you want to reduce customer confusion.\nNext is the Discountable Checkbox\nWhen this box is marked, it indicates that this item can receive a discount by way of coupon or wine case discount. *All\nitems will have the discountable flag marked YES by default. To change this, you’ll want to remove the mark from this\ncheckbox.\nRemove this if:\nA discount will reduce this item below its cost.\nThe product has lower-than-typical margins than your other items.\nYou want this product to contribute to the quantity of a case discount, but not receive the discount itself.\nThe In-Store Only Checkboxes\nWhen you mark this checkbox, it will tag the product with an “IN STORE ONLY” banner and restrict the customer\nfrom ordering the product on your app or website. This operates similarly to the Allocated Checkbox, but the product\nwill remain visible as to let the customer know that you do carry the item, but must be purchased in-person.",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "591b2fd7-33cf-4888-b328-ccc4ea79bd77",
+      "parent_index": 6,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  },
+  "3cb088a0-cdf6-46ec-9c55-9bc246428bfc": {
+    "content": "Use this if:\nYou want customers\nto see your rare &\nexpensive\nbourbons/wines, but\nonly want them\npurchased in your\nphysical store.\nYou want to mark an\nitem as “in store”\nwhen you have low-\nstock to avoid over-\nselling the product.\nYou can add these\nitems to a Home\nPage Section titled “Loyalty Bourbons” and prominently display this on your app & website.\nInclude Marketplace\nIf you’re using Bottlecapps to send your inventory feed to DoorDash, Instacart, GrubHub etc…, then this checkbox\naffects your store. By default, all items will have this checkmarked. This means the Bottlecapps is sending this product\nto the Marketplace. By unchecking this box, you will have this product removed from the next file that Bottlecapps\nsends to applicable Marketplace providers.\nUse this if:\nYou don’t want your product to show on DoorDash but do want it showing on Bottlecapps.\nThis product is not profitable on other marketplaces due to your margins on this item.\nYou just want the items to be shopped on YOUR website or In-Store only.",
+    "metadata": {
+      "source": "documents\\SETUP\\Setup Guides\\prices-inventories-how-to-update-products.pdf",
+      "source_filename": "prices-inventories-how-to-update-products.pdf",
+      "document_title": "Prices Inventories How To Update Products",
+      "category": "SETUP > Setup Guides",
+      "chunk_strategy": "parent_child",
+      "parent_id": "3cb088a0-cdf6-46ec-9c55-9bc246428bfc",
+      "parent_index": 7,
+      "total_parents": 8,
+      "is_parent": true
+    }
+  }
+}
