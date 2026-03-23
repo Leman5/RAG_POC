@@ -12,10 +12,9 @@ from app.config import Settings, get_settings
 
 
 @lru_cache
-def get_embeddings(settings: Settings | None = None) -> OpenAIEmbeddings:
+def get_embeddings() -> OpenAIEmbeddings:
     """Get cached OpenAI embeddings instance."""
-    if settings is None:
-        settings = get_settings()
+    settings = get_settings()
     return OpenAIEmbeddings(
         model=settings.embedding_model,
         openai_api_key=settings.openai_api_key,
@@ -23,10 +22,9 @@ def get_embeddings(settings: Settings | None = None) -> OpenAIEmbeddings:
 
 
 @lru_cache
-def get_llm(settings: Settings | None = None) -> ChatOpenAI:
+def get_llm() -> ChatOpenAI:
     """Get cached LLM instance for response generation."""
-    if settings is None:
-        settings = get_settings()
+    settings = get_settings()
     return ChatOpenAI(
         model=settings.llm_model,
         openai_api_key=settings.openai_api_key,
@@ -35,10 +33,9 @@ def get_llm(settings: Settings | None = None) -> ChatOpenAI:
 
 
 @lru_cache
-def get_router_llm(settings: Settings | None = None) -> ChatOpenAI:
+def get_router_llm() -> ChatOpenAI:
     """Get cached LLM instance for query routing (faster, cheaper model)."""
-    if settings is None:
-        settings = get_settings()
+    settings = get_settings()
     return ChatOpenAI(
         model=settings.router_model,
         openai_api_key=settings.openai_api_key,
@@ -47,11 +44,10 @@ def get_router_llm(settings: Settings | None = None) -> ChatOpenAI:
 
 
 @lru_cache
-def get_vector_store(settings: Settings | None = None) -> Chroma:
+def get_vector_store() -> Chroma:
     """Get cached ChromaDB vector store instance."""
-    if settings is None:
-        settings = get_settings()
-    embeddings = get_embeddings(settings)
+    settings = get_settings()
+    embeddings = get_embeddings()
     return Chroma(
         collection_name="documents",
         embedding_function=embeddings,

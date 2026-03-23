@@ -30,3 +30,6 @@ httpx>=0.28.0
 
 # OpenAI SDK (for vision API)
 openai>=2.20.0
+
+# Streamlit UI
+streamlit>=1.40.0

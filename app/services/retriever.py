@@ -89,6 +89,9 @@ async def retrieve_documents(
     parent_file = parents_path or settings.parents_path
 
     try:
+        print(f"[DEBUG retriever] retrieve_documents called for query: {query[:50]}...")
+        print(f"[DEBUG retriever] k={k}, parent_file={parent_file}")
+        
         # Build ensemble retriever
         ensemble = build_ensemble_retriever(
             vector_store=vector_store,
@@ -97,14 +100,18 @@ async def retrieve_documents(
         )
 
         if ensemble is None:
+            print("[DEBUG retriever] No retriever available")
             logger.warning("No retriever available")
             return []
 
         # Retrieve documents
+        print("[DEBUG retriever] Invoking ensemble retriever...")
         results = ensemble.invoke(query)
+        print(f"[DEBUG retriever] Got {len(results)} raw results")
 
         # Resolve parent-child relationships
         resolved_results = _resolve_parents(results, parent_file)
+        print(f"[DEBUG retriever] Resolved to {len(resolved_results)} results")
 
         # Deduplicate (parents may be returned multiple times if
         # multiple children from the same parent matched)
@@ -119,10 +126,14 @@ async def retrieve_documents(
         # Convert to DocumentChunk
         chunks = [_document_to_chunk(doc) for doc in unique_results[:k]]
 
+        print(f"[DEBUG retriever] Returning {len(chunks)} chunks")
         logger.info(f"Retrieved {len(chunks)} relevant chunks for query")
         return chunks
 
     except Exception as e:
+        print(f"[DEBUG retriever] EXCEPTION: {type(e).__name__}: {e}")
+        import traceback
+        print(f"[DEBUG retriever] Traceback: {traceback.format_exc()}")
         logger.error(f"Error retrieving documents: {e}")
         return []
 

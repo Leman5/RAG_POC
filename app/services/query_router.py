@@ -58,9 +58,15 @@ async def route_query(query: str, router_llm: ChatOpenAI) -> RouteDecision:
         HumanMessage(content=f"Classify this query: {query}"),
     ]
 
+    print(f"[DEBUG route_query] Model: {router_llm.model_name}")
+    print(f"[DEBUG route_query] API base: {router_llm.openai_api_base}")
+    print(f"[DEBUG route_query] Invoking LLM...")
+
     try:
         response = await router_llm.ainvoke(messages)
+        print(f"[DEBUG route_query] Got response from LLM")
         response_text = response.content.strip()
+        print(f"[DEBUG route_query] Response: {response_text[:100]}...")
 
         # Try to parse the JSON response
         # Handle potential markdown code blocks
@@ -81,6 +87,7 @@ async def route_query(query: str, router_llm: ChatOpenAI) -> RouteDecision:
         )
 
     except json.JSONDecodeError as e:
+        print(f"[DEBUG route_query] JSON decode error: {e}")
         logger.warning(f"Failed to parse router response: {e}. Defaulting to retrieval.")
         return RouteDecision(
             needs_retrieval=True,
@@ -88,6 +95,9 @@ async def route_query(query: str, router_llm: ChatOpenAI) -> RouteDecision:
         )
 
     except Exception as e:
+        print(f"[DEBUG route_query] EXCEPTION: {type(e).__name__}: {e}")
+        import traceback
+        print(f"[DEBUG route_query] Traceback: {traceback.format_exc()}")
         logger.error(f"Error in query routing: {e}. Defaulting to retrieval.")
         return RouteDecision(
             needs_retrieval=True,

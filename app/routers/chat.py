@@ -15,6 +15,7 @@ from app.models.schemas import ChatRequest, ChatResponse, DocumentChunk
 from app.services.query_router import route_query
 from app.services.retriever import retrieve_documents
 from app.services.generator import generate_response
+from app.services.session_store import get_or_create_history, get_recent_messages, add_exchange
 
 logger = logging.getLogger(__name__)
 
@@ -57,11 +58,27 @@ async def chat(
         ChatResponse with answer, retrieval status, and sources
     """
     query = request.query.strip()
+    max_history = settings.chat_history_max_messages
+
+    session_id, _ = get_or_create_history(request.session_id)
+    chat_history = get_recent_messages(session_id, max_messages=max_history)
+
+    # DEBUG LOGGING
+    print(f"[DEBUG] Received query: {query}")
+    print(f"[DEBUG] Session ID: {session_id}, history messages: {len(chat_history)}")
+    print(f"[DEBUG] Settings LLM model: {settings.llm_model}")
+    print(f"[DEBUG] Settings router model: {settings.router_model}")
+    print(f"[DEBUG] OpenAI API key (first 20 chars): {settings.openai_api_key[:20]}...")
+    print(f"[DEBUG] BM25 retriever available: {bm25_retriever is not None}")
+    print(f"[DEBUG] Vector store type: {type(vector_store)}")
+
     logger.info(f"Processing query: {query[:50]}...")
 
     try:
         # Step 1: Route the query
+        print("[DEBUG] Step 1: Calling route_query...")
         route_decision = await route_query(query, router_llm)
+        print(f"[DEBUG] Route decision: needs_retrieval={route_decision.needs_retrieval}")
         logger.info(f"Route decision: needs_retrieval={route_decision.needs_retrieval}, reason={route_decision.reason}")
 
         sources: list[DocumentChunk] = []
@@ -69,6 +86,7 @@ async def chat(
 
         # Step 2: Retrieve documents if needed
         if route_decision.needs_retrieval:
+            print("[DEBUG] Step 2: Calling retrieve_documents...")
             sources = await retrieve_documents(
                 query=query,
                 vector_store=vector_store,
@@ -78,24 +96,37 @@ async def chat(
             )
             if sources:
                 context_chunks = sources
+                print(f"[DEBUG] Retrieved {len(sources)} chunks")
                 logger.info(f"Retrieved {len(sources)} relevant chunks")
             else:
+                print("[DEBUG] No chunks retrieved")
                 logger.info("No relevant chunks found above threshold")
+        else:
+            print("[DEBUG] Step 2: Skipping retrieval (not needed)")
 
-        # Step 3: Generate response
+        # Step 3: Generate response with conversation history
+        print("[DEBUG] Step 3: Calling generate_response...")
         answer = await generate_response(
             query=query,
             llm=llm,
             context_chunks=context_chunks,
+            chat_history=chat_history,
         )
+        print(f"[DEBUG] Generated answer length: {len(answer)} chars")
+
+        add_exchange(session_id, query, answer, max_messages=max_history)
 
         return ChatResponse(
             answer=answer,
             used_retrieval=route_decision.needs_retrieval and bool(sources),
             sources=sources,
+            session_id=session_id,
         )
 
     except Exception as e:
+        print(f"[DEBUG chat] EXCEPTION in chat endpoint: {type(e).__name__}: {e}")
+        import traceback
+        print(f"[DEBUG chat] Full traceback: {traceback.format_exc()}")
         logger.error(f"Error processing chat request: {e}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -112,6 +143,7 @@ async def chat(
 async def chat_direct(
     request: ChatRequest,
     api_key: Annotated[str, Depends(verify_api_key)],
+    settings: Annotated[Settings, Depends(get_settings)],
     llm: Annotated[ChatOpenAI, Depends(get_llm)],
 ) -> ChatResponse:
     """Process a chat query directly without retrieval.
@@ -121,12 +153,18 @@ async def chat_direct(
     Args:
         request: Chat request with user query
         api_key: Validated API key from middleware
+        settings: Application settings
         llm: LLM for response generation
 
     Returns:
         ChatResponse with answer (no sources)
     """
     query = request.query.strip()
+    max_history = settings.chat_history_max_messages
+
+    session_id, _ = get_or_create_history(request.session_id)
+    chat_history = get_recent_messages(session_id, max_messages=max_history)
+
     logger.info(f"Processing direct query: {query[:50]}...")
 
     try:
@@ -134,12 +172,16 @@ async def chat_direct(
             query=query,
             llm=llm,
             context_chunks=None,
+            chat_history=chat_history,
         )
+
+        add_exchange(session_id, query, answer, max_messages=max_history)
 
         return ChatResponse(
             answer=answer,
             used_retrieval=False,
             sources=[],
+            session_id=session_id,
         )
 
     except Exception as e:
@@ -180,6 +222,11 @@ async def chat_rag(
         ChatResponse with answer and sources
     """
     query = request.query.strip()
+    max_history = settings.chat_history_max_messages
+
+    session_id, _ = get_or_create_history(request.session_id)
+    chat_history = get_recent_messages(session_id, max_messages=max_history)
+
     logger.info(f"Processing forced RAG query: {query[:50]}...")
 
     try:
@@ -195,17 +242,21 @@ async def chat_rag(
         context_chunks = sources if sources else None
         logger.info(f"Retrieved {len(sources)} chunks for forced RAG")
 
-        # Generate response
+        # Generate response with conversation history
         answer = await generate_response(
             query=query,
             llm=llm,
             context_chunks=context_chunks,
+            chat_history=chat_history,
         )
+
+        add_exchange(session_id, query, answer, max_messages=max_history)
 
         return ChatResponse(
             answer=answer,
             used_retrieval=bool(sources),
             sources=sources,
+            session_id=session_id,
         )
 
     except Exception as e:

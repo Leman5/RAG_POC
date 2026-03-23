@@ -43,6 +43,9 @@ class Settings(BaseSettings):
     # Vision Configuration
     vision_dpi: int = 150
 
+    # Chat History Configuration
+    chat_history_max_messages: int = 10
+
     # Chunking Configuration
     chunk_size_recursive: int = 1000
     chunk_overlap_recursive: int = 200

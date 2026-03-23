@@ -7,6 +7,7 @@ class ChatRequest(BaseModel):
     """Request model for chat endpoint."""
 
     query: str = Field(..., min_length=1, description="User query to process")
+    session_id: str | None = Field(None, description="Session ID for conversation history. Server generates one if omitted.")
 
 
 class DocumentChunk(BaseModel):
@@ -39,6 +40,7 @@ class ChatResponse(BaseModel):
     sources: list[DocumentChunk] = Field(
         default_factory=list, description="Retrieved source documents"
     )
+    session_id: str = Field(..., description="Session ID to use for follow-up queries")
 
 
 class HealthResponse(BaseModel):
