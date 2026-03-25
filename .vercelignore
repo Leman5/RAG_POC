@@ -1,0 +1,17 @@
+# Exclude runtime data files
+chroma_db/
+data/
+documents/
+
+# Exclude development files
+unit_tests/
+.git/
+__pycache__/
+*.pyc
+.env
+.env.local
+
+# Exclude unnecessary files
+frontend/
+scripts/
+*.md
