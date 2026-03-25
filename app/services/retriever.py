@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 def build_ensemble_retriever(
-    vector_store: Chroma,
+    vector_store: Chroma | None,
     bm25_retriever: BM25Retriever | None,
     k: int = 5,
     bm25_weight: float = 0.4,
@@ -28,11 +28,14 @@ def build_ensemble_retriever(
 ) -> EnsembleRetriever | None:
     """Build an EnsembleRetriever combining dense and sparse search.
 
-    If BM25 retriever is not available (no chunks ingested yet),
-    falls back to dense-only retrieval.
+    Falls back gracefully if either retriever is unavailable:
+    - If both available: combines dense + sparse
+    - If only dense: uses dense-only
+    - If only sparse: uses sparse-only
+    - If neither: returns None
 
     Args:
-        vector_store: ChromaDB store for dense retrieval.
+        vector_store: ChromaDB store for dense retrieval (can be None).
         bm25_retriever: BM25Retriever for keyword search (can be None).
         k: Number of results per retriever.
         bm25_weight: Weight for BM25 results in RRF.
@@ -41,27 +44,41 @@ def build_ensemble_retriever(
     Returns:
         EnsembleRetriever instance, or None if nothing is available.
     """
-    dense_retriever = vector_store.as_retriever(
-        search_type="similarity",
-        search_kwargs={"k": k},
-    )
+    retrievers = []
+    weights = []
 
-    if bm25_retriever is None:
-        logger.warning("BM25 retriever not available, using dense-only retrieval")
-        return EnsembleRetriever(
-            retrievers=[dense_retriever],
-            weights=[1.0],
+    # Add BM25 if available
+    if bm25_retriever is not None:
+        retrievers.append(bm25_retriever)
+        weights.append(bm25_weight)
+
+    # Add dense if available
+    if vector_store is not None:
+        dense_retriever = vector_store.as_retriever(
+            search_type="similarity",
+            search_kwargs={"k": k},
         )
+        retrievers.append(dense_retriever)
+        weights.append(dense_weight)
 
-    return EnsembleRetriever(
-        retrievers=[bm25_retriever, dense_retriever],
-        weights=[bm25_weight, dense_weight],
-    )
+    if not retrievers:
+        logger.warning("No retrievers available (BM25 and ChromaDB both missing)")
+        return None
+
+    # Normalize weights if only one retriever
+    if len(retrievers) == 1:
+        weights = [1.0]
+    else:
+        # Re-normalize weights to sum to 1
+        total = sum(weights)
+        weights = [w / total for w in weights]
+
+    return EnsembleRetriever(retrievers=retrievers, weights=weights)
 
 
 async def retrieve_documents(
     query: str,
-    vector_store: Chroma,
+    vector_store: Chroma | None,
     settings: Settings,
     bm25_retriever: BM25Retriever | None = None,
     top_k: Optional[int] = None,
@@ -71,11 +88,12 @@ async def retrieve_documents(
     """Retrieve relevant document chunks using hybrid search.
 
     Uses EnsembleRetriever (BM25 + Dense) and resolves parent-child
-    relationships for hierarchical chunks.
+    relationships for hierarchical chunks. Gracefully falls back if
+    either retriever is unavailable.
 
     Args:
         query: The user query to search for.
-        vector_store: ChromaDB store instance.
+        vector_store: ChromaDB store instance (can be None).
         settings: Application settings.
         bm25_retriever: Optional BM25Retriever for keyword search.
         top_k: Number of results to return.

@@ -3,11 +3,22 @@
 from pydantic import BaseModel, Field
 
 
+class ChatMessage(BaseModel):
+    """Single message in conversation history."""
+
+    role: str = Field(..., description="Message role: 'user' or 'assistant'")
+    content: str = Field(..., description="Message content")
+
+
 class ChatRequest(BaseModel):
     """Request model for chat endpoint."""
 
     query: str = Field(..., min_length=1, description="User query to process")
     session_id: str | None = Field(None, description="Session ID for conversation history. Server generates one if omitted.")
+    chat_history: list[ChatMessage] = Field(
+        default_factory=list,
+        description="Previous messages in conversation for context"
+    )
 
 
 class DocumentChunk(BaseModel):

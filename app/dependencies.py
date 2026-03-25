@@ -44,15 +44,24 @@ def get_router_llm() -> ChatOpenAI:
 
 
 @lru_cache
-def get_vector_store() -> Chroma:
-    """Get cached ChromaDB vector store instance."""
+def get_vector_store() -> Chroma | None:
+    """Get cached ChromaDB vector store instance.
+
+    Returns None if ChromaDB cannot be initialized (e.g., on serverless platforms).
+    Falls back to BM25-only retrieval in this case.
+    """
     settings = get_settings()
-    embeddings = get_embeddings()
-    return Chroma(
-        collection_name="documents",
-        embedding_function=embeddings,
-        persist_directory=settings.chroma_persist_dir,
-    )
+    try:
+        embeddings = get_embeddings()
+        return Chroma(
+            collection_name="documents",
+            embedding_function=embeddings,
+            persist_directory=settings.chroma_persist_dir,
+        )
+    except Exception as e:
+        print(f"Warning: Could not initialize ChromaDB: {e}")
+        print("Falling back to BM25-only retrieval")
+        return None
 
 
 def get_bm25_retriever(request: Request) -> BM25Retriever | None:

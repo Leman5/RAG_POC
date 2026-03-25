@@ -22,11 +22,23 @@ DEFAULT_API_KEY = (
 )
 
 
-def call_chat_api(base_url: str, api_key: str, query: str, session_id: str) -> dict | None:
+def call_chat_api(base_url: str, api_key: str, query: str, session_id: str, chat_history: list = None) -> dict | None:
     """POST to /api/v1/chat and return parsed JSON or None on failure."""
     url = f"{base_url.rstrip('/')}/api/v1/chat"
     headers = {"X-API-Key": api_key, "Content-Type": "application/json"}
-    payload = {"query": query, "session_id": session_id}
+
+    # Build chat history without the current message
+    history = []
+    if chat_history:
+        for msg in chat_history:
+            if "role" in msg and "content" in msg:
+                history.append({"role": msg["role"], "content": msg["content"]})
+
+    payload = {
+        "query": query,
+        "session_id": session_id,
+        "chat_history": history
+    }
     try:
         with httpx.Client(timeout=60.0) as client:
             resp = client.post(url, json=payload, headers=headers)
@@ -122,7 +134,13 @@ def main() -> None:
 
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
-                result = call_chat_api(api_base_url, api_key, prompt, st.session_state.session_id)
+                result = call_chat_api(
+                    api_base_url,
+                    api_key,
+                    prompt,
+                    st.session_state.session_id,
+                    st.session_state.messages
+                )
 
             if result:
                 answer = result.get("answer", "")
