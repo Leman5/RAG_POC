@@ -1,6 +1,5 @@
 # Exclude runtime data files
 chroma_db/
-data/
 documents/
 
 # Exclude development files
