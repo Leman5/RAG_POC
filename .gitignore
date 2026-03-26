@@ -26,11 +26,3 @@ Thumbs.db
 
 # Logs
 *.log
-
-# Runtime data (generated during ingestion)
-chroma_db/
-*.sqlite3
-*.bin
-
-# Document uploads
-documents/

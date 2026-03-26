@@ -7,7 +7,6 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from langchain_chroma import Chroma
 from langchain_community.retrievers import BM25Retriever
 from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage, AIMessage
 
 from app.config import Settings, get_settings
 from app.dependencies import get_bm25_retriever, get_llm, get_router_llm, get_vector_store
@@ -35,7 +34,7 @@ async def chat(
     settings: Annotated[Settings, Depends(get_settings)],
     llm: Annotated[ChatOpenAI, Depends(get_llm)],
     router_llm: Annotated[ChatOpenAI, Depends(get_router_llm)],
-    vector_store: Annotated[Chroma | None, Depends(get_vector_store)],
+    vector_store: Annotated[Chroma, Depends(get_vector_store)],
     bm25_retriever: Annotated[BM25Retriever | None, Depends(get_bm25_retriever)],
 ) -> ChatResponse:
     """Process a chat query using the RAG system.
@@ -62,15 +61,7 @@ async def chat(
     max_history = settings.chat_history_max_messages
 
     session_id, _ = get_or_create_history(request.session_id)
-
-    # Convert chat history from request into BaseMessage format
-    chat_history = []
-    if request.chat_history:
-        for msg in request.chat_history:
-            if msg.role.lower() == "user":
-                chat_history.append(HumanMessage(content=msg.content))
-            elif msg.role.lower() == "assistant":
-                chat_history.append(AIMessage(content=msg.content))
+    chat_history = get_recent_messages(session_id, max_messages=max_history)
 
     # DEBUG LOGGING
     print(f"[DEBUG] Received query: {query}")
